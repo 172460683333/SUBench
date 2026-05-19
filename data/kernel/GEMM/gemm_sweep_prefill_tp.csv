@@ -1,0 +1,577 @@
+proj,tp_mode,base_m,m,tp,k,n,time_us,tflops,status
+qkv_proj,column,16384,16384,1,6144,14336,,,OK
+qkv_proj,column,16384,32768,2,6144,7168,908.3,3178,OK
+qkv_proj,column,16384,49152,3,6144,4864,926.0,3173,OK
+qkv_proj,column,16384,65536,4,6144,3584,889.1,3246,OK
+qkv_proj,column,16384,81920,5,6144,3072,971.0,3185,OK
+qkv_proj,column,16384,98304,6,6144,2560,993.3,3113,OK
+qkv_proj,column,16384,114688,7,6144,2304,1058.0,3069,OK
+qkv_proj,column,16384,131072,8,6144,1792,918.9,3141,OK
+qkv_proj,column,16384,147456,9,6144,1664,1014.0,2973,OK
+qkv_proj,column,16384,163840,10,6144,1536,997.1,3101,OK
+qkv_proj,column,16384,180224,11,6144,1408,1072.0,2909,OK
+qkv_proj,column,16384,196608,12,6144,1280,1021.0,3029,OK
+qkv_proj,column,16384,212992,13,6144,1280,1121.0,2988,OK
+qkv_proj,column,16384,229376,14,6144,1152,1067.0,3043,OK
+qkv_proj,column,16384,245760,15,6144,1152,1154.0,3015,OK
+qkv_proj,column,16384,262144,16,6144,1024,1151.0,2866,OK
+qkv_proj,column,16384,278528,17,6144,1024,1214.0,2887,OK
+qkv_proj,column,16384,294912,18,6144,1024,1268.0,2927,OK
+qkv_proj,column,16384,311296,19,6144,1024,1344.0,2914,OK
+qkv_proj,column,16384,327680,20,6144,896,1171.0,3081,OK
+qkv_proj,column,16384,344064,21,6144,896,1231.0,3077,OK
+qkv_proj,column,16384,360448,22,6144,896,1294.0,3067,OK
+qkv_proj,column,16384,376832,23,6144,896,1343.0,3089,OK
+qkv_proj,column,16384,393216,24,6144,768,1279.0,2901,OK
+qkv_proj,column,16384,409600,25,6144,768,1316.0,2937,OK
+qkv_proj,column,16384,425984,26,6144,768,1359.0,2958,OK
+qkv_proj,column,16384,442368,27,6144,768,1418.0,2944,OK
+qkv_proj,column,16384,458752,28,6144,768,1472.0,2941,OK
+qkv_proj,column,16384,475136,29,6144,768,1509.0,2971,OK
+qkv_proj,column,16384,491520,30,6144,768,1569.0,2956,OK
+qkv_proj,column,16384,507904,31,6144,768,1621.0,2957,OK
+qkv_proj,column,16384,524288,32,6144,640,1476.0,2793,OK
+qkv_proj,column,16384,540672,33,6144,640,1509.0,2818,OK
+qkv_proj,column,16384,557056,34,6144,640,1542.0,2841,OK
+qkv_proj,column,16384,573440,35,6144,640,1572.0,2869,OK
+qkv_proj,column,16384,589824,36,6144,640,1608.0,2885,OK
+qkv_proj,column,16384,606208,37,6144,640,1676.0,2845,OK
+qkv_proj,column,16384,622592,38,6144,640,1705.0,2872,OK
+qkv_proj,column,16384,638976,39,6144,640,1752.0,2868,OK
+qkv_proj,column,16384,655360,40,6144,640,1814.0,2841,OK
+qkv_proj,column,16384,671744,41,6144,640,1844.0,2865,OK
+qkv_proj,column,16384,688128,42,6144,640,1905.0,2841,OK
+qkv_proj,column,16384,704512,43,6144,640,1943.0,2852,OK
+qkv_proj,column,16384,720896,44,6144,640,2016.0,2812,OK
+qkv_proj,column,16384,737280,45,6144,640,2037.0,2846,OK
+qkv_proj,column,16384,753664,46,6144,640,2094.0,2830,OK
+qkv_proj,column,16384,770048,47,6144,640,2131.0,2842,OK
+qkv_proj,column,16384,786432,48,6144,512,1892.0,2615,OK
+qkv_proj,column,16384,802816,49,6144,512,1945.0,2597,OK
+qkv_proj,column,16384,819200,50,6144,512,1988.0,2593,OK
+qkv_proj,column,16384,835584,51,6144,512,2036.0,2582,OK
+qkv_proj,column,16384,851968,52,6144,512,2060.0,2602,OK
+qkv_proj,column,16384,868352,53,6144,512,2094.0,2609,OK
+qkv_proj,column,16384,884736,54,6144,512,2142.0,2599,OK
+qkv_proj,column,16384,901120,55,6144,512,2181.0,2599,OK
+qkv_proj,column,16384,917504,56,6144,512,2208.0,2614,OK
+qkv_proj,column,16384,933888,57,6144,512,2258.0,2602,OK
+qkv_proj,column,16384,950272,58,6144,512,2292.0,2608,OK
+qkv_proj,column,16384,966656,59,6144,512,2370.0,2566,OK
+qkv_proj,column,16384,983040,60,6144,512,2421.0,2555,OK
+qkv_proj,column,16384,999424,61,6144,512,2449.0,2568,OK
+qkv_proj,column,16384,1015808,62,6144,512,2513.0,2543,OK
+qkv_proj,column,16384,1032192,63,6144,512,2535.0,2562,OK
+qkv_proj,column,16384,1048576,64,6144,512,2574.0,2563,OK
+qkv_proj,column,16384,1064960,65,6144,512,2599.0,2578,OK
+qkv_proj,column,16384,1081344,66,6144,512,2657.0,2560,OK
+qkv_proj,column,16384,1097728,67,6144,512,2701.0,2557,OK
+qkv_proj,column,16384,1114112,68,6144,512,2735.0,2563,OK
+qkv_proj,column,16384,1130496,69,6144,512,2785.0,2554,OK
+qkv_proj,column,16384,1146880,70,6144,512,2825.0,2554,OK
+qkv_proj,column,16384,1163264,71,6144,512,2858.0,2561,OK
+qkv_proj,column,16384,1179648,72,6144,512,2920.0,2542,OK
+qkv_proj,column,32768,32768,1,6144,14336,1842.0,3134,OK
+qkv_proj,column,32768,65536,2,6144,7168,1830.0,3154,OK
+qkv_proj,column,32768,98304,3,6144,4864,1840.0,3193,OK
+qkv_proj,column,32768,131072,4,6144,3584,1780.0,3243,OK
+qkv_proj,column,32768,163840,5,6144,3072,1949.0,3173,OK
+qkv_proj,column,32768,196608,6,6144,2560,1998.0,3095,OK
+qkv_proj,column,32768,229376,7,6144,2304,2181.0,2978,OK
+qkv_proj,column,32768,262144,8,6144,1792,1816.0,3179,OK
+qkv_proj,column,32768,294912,9,6144,1664,2065.0,2920,OK
+qkv_proj,column,32768,327680,10,6144,1536,2032.0,3044,OK
+qkv_proj,column,32768,360448,11,6144,1408,2124.0,2936,OK
+qkv_proj,column,32768,393216,12,6144,1280,2074.0,2982,OK
+qkv_proj,column,32768,425984,13,6144,1280,2197.0,3050,OK
+qkv_proj,column,32768,458752,14,6144,1152,2136.0,3040,OK
+qkv_proj,column,32768,491520,15,6144,1152,2300.0,3025,OK
+qkv_proj,column,32768,524288,16,6144,1024,2267.0,2910,OK
+qkv_proj,column,32768,557056,17,6144,1024,2499.0,2805,OK
+qkv_proj,column,32768,589824,18,6144,1024,2540.0,2922,OK
+qkv_proj,column,32768,622592,19,6144,1024,2735.0,2864,OK
+qkv_proj,column,32768,655360,20,6144,896,2377.0,3036,OK
+qkv_proj,column,32768,688128,21,6144,896,2526.0,2999,OK
+qkv_proj,column,32768,720896,22,6144,896,2628.0,3020,OK
+qkv_proj,column,32768,753664,23,6144,896,2719.0,3052,OK
+qkv_proj,column,32768,786432,24,6144,768,2510.0,2957,OK
+qkv_proj,column,32768,819200,25,6144,768,2607.0,2965,OK
+qkv_proj,column,32768,851968,26,6144,768,2790.0,2882,OK
+qkv_proj,column,32768,884736,27,6144,768,2893.0,2886,OK
+qkv_proj,column,32768,917504,28,6144,768,2983.0,2903,OK
+qkv_proj,column,32768,950272,29,6144,768,3105.0,2888,OK
+qkv_proj,column,32768,983040,30,6144,768,3158.0,2938,OK
+qkv_proj,column,32768,1015808,31,6144,768,3321.0,2887,OK
+qkv_proj,column,32768,1048576,32,6144,640,2950.0,2795,OK
+qkv_proj,column,32768,1081344,33,6144,640,3091.0,2751,OK
+qkv_proj,column,32768,1114112,34,6144,640,3119.0,2809,OK
+qkv_proj,column,32768,1146880,35,6144,640,3211.0,2809,OK
+qkv_proj,column,32768,1179648,36,6144,640,3345.0,2773,OK
+qkv_proj,column,32768,1212416,37,6144,640,3381.0,2820,OK
+qkv_proj,column,32768,1245184,38,6144,640,3482.0,2812,OK
+qkv_proj,column,32768,1277952,39,6144,640,3609.0,2785,OK
+qkv_proj,column,32768,1310720,40,6144,640,3688.0,2795,OK
+qkv_proj,column,32768,1343488,41,6144,640,3844.0,2749,OK
+qkv_proj,column,32768,1376256,42,6144,640,3963.0,2731,OK
+qkv_proj,column,32768,1409024,43,6144,640,4079.0,2717,OK
+qkv_proj,column,32768,1441792,44,6144,640,4088.0,2774,OK
+qkv_proj,column,32768,1474560,45,6144,640,4165.0,2784,OK
+qkv_proj,column,32768,1507328,46,6144,640,4266.0,2779,OK
+qkv_proj,column,32768,1540096,47,6144,640,4427.0,2736,OK
+qkv_proj,column,32768,1572864,48,6144,512,3909.0,2531,OK
+qkv_proj,column,32768,1605632,49,6144,512,3962.0,2550,OK
+qkv_proj,column,32768,1638400,50,6144,512,4117.0,2504,OK
+qkv_proj,column,32768,1671168,51,6144,512,4131.0,2545,OK
+qkv_proj,column,32768,1703936,52,6144,512,4225.0,2537,OK
+qkv_proj,column,32768,1736704,53,6144,512,4355.0,2509,OK
+qkv_proj,column,32768,1769472,54,6144,512,4375.0,2545,OK
+qkv_proj,column,32768,1802240,55,6144,512,4596.0,2467,OK
+qkv_proj,column,32768,1835008,56,6144,512,4546.0,2540,OK
+qkv_proj,column,32768,1867776,57,6144,512,4676.0,2513,OK
+qkv_proj,column,32768,1900544,58,6144,512,4766.0,2509,OK
+qkv_proj,column,32768,1933312,59,6144,512,4850.0,2508,OK
+qkv_proj,column,32768,1966080,60,6144,512,4936.0,2506,OK
+qkv_proj,column,32768,1998848,61,6144,512,5010.0,2510,OK
+qkv_proj,column,32768,2031616,62,6144,512,5176.0,2469,OK
+qkv_proj,column,32768,2064384,63,6144,512,5263.0,2468,OK
+qkv_proj,column,32768,2097152,64,6144,512,5373.0,2456,OK
+qkv_proj,column,32768,2129920,65,6144,512,5364.0,2498,OK
+qkv_proj,column,32768,2162688,66,6144,512,5496.0,2476,OK
+qkv_proj,column,32768,2195456,67,6144,512,5725.0,2413,OK
+qkv_proj,column,32768,2228224,68,6144,512,5876.0,2386,OK
+qkv_proj,column,32768,2260992,69,6144,512,5761.0,2469,OK
+qkv_proj,column,32768,2293760,70,6144,512,5872.0,2458,OK
+qkv_proj,column,32768,2326528,71,6144,512,5949.0,2460,OK
+qkv_proj,column,32768,2359296,72,6144,512,6075.0,2443,OK
+qkv_proj,column,65536,65536,1,6144,14336,3727.0,3098,OK
+qkv_proj,column,65536,131072,2,6144,7168,3745.0,3083,OK
+qkv_proj,column,65536,196608,3,6144,4864,3806.0,3088,OK
+qkv_proj,column,65536,262144,4,6144,3584,3663.0,3152,OK
+qkv_proj,column,65536,327680,5,6144,3072,3953.0,3129,OK
+qkv_proj,column,65536,393216,6,6144,2560,4094.0,3021,OK
+qkv_proj,column,65536,458752,7,6144,2304,4391.0,2958,OK
+qkv_proj,column,65536,524288,8,6144,1792,3664.0,3151,OK
+qkv_proj,column,65536,589824,9,6144,1664,4123.0,2925,OK
+qkv_proj,column,65536,655360,10,6144,1536,4151.0,2980,OK
+qkv_proj,column,65536,720896,11,6144,1408,4466.0,2793,OK
+qkv_proj,column,65536,786432,12,6144,1280,4348.0,2845,OK
+qkv_proj,column,65536,851968,13,6144,1280,4770.0,2809,OK
+qkv_proj,column,65536,917504,14,6144,1152,4420.0,2938,OK
+qkv_proj,column,65536,983040,15,6144,1152,4694.0,2965,OK
+qkv_proj,column,65536,1048576,16,6144,1024,4769.0,2767,OK
+qkv_proj,column,65536,1114112,17,6144,1024,5061.0,2770,OK
+qkv_proj,column,65536,1179648,18,6144,1024,5512.0,2693,OK
+qkv_proj,column,65536,1245184,19,6144,1024,5829.0,2688,OK
+qkv_proj,column,65536,1310720,20,6144,896,4992.0,2891,OK
+qkv_proj,column,65536,1376256,21,6144,896,5312.0,2853,OK
+qkv_proj,column,65536,1441792,22,6144,896,5610.0,2830,OK
+qkv_proj,column,65536,1507328,23,6144,896,5808.0,2857,OK
+qkv_proj,column,65536,1572864,24,6144,768,5300.0,2801,OK
+qkv_proj,column,65536,1638400,25,6144,768,5542.0,2790,OK
+qkv_proj,column,65536,1703936,26,6144,768,5851.0,2748,OK
+qkv_proj,column,65536,1769472,27,6144,768,6132.0,2723,OK
+qkv_proj,column,65536,1835008,28,6144,768,6172.0,2806,OK
+qkv_proj,column,65536,1900544,29,6144,768,6521.0,2750,OK
+qkv_proj,column,65536,1966080,30,6144,768,6816.0,2722,OK
+qkv_proj,column,65536,2031616,31,6144,768,7012.0,2734,OK
+qkv_proj,column,65536,2097152,32,6144,640,6202.0,2659,OK
+qkv_proj,column,65536,2162688,33,6144,640,6347.0,2680,OK
+qkv_proj,column,65536,2228224,34,6144,640,6586.0,2661,OK
+qkv_proj,column,65536,2293760,35,6144,640,6734.0,2679,OK
+qkv_proj,column,65536,2359296,36,6144,640,7003.0,2649,OK
+qkv_proj,column,65536,2424832,37,6144,640,7121.0,2678,OK
+qkv_proj,column,65536,2490368,38,6144,640,7342.0,2668,OK
+qkv_proj,column,65536,2555904,39,6144,640,7628.0,2635,OK
+qkv_proj,column,65536,2621440,40,6144,640,7789.0,2647,OK
+qkv_proj,column,65536,2686976,41,6144,640,8121.0,2602,OK
+qkv_proj,column,65536,2752512,42,6144,640,8113.0,2668,OK
+qkv_proj,column,65536,2818048,43,6144,640,8351.0,2654,OK
+qkv_proj,column,65536,2883584,44,6144,640,8514.0,2664,OK
+qkv_proj,column,65536,2949120,45,6144,640,9098.0,2549,OK
+qkv_proj,column,65536,3014656,46,6144,640,9347.0,2536,OK
+qkv_proj,column,65536,3080192,47,6144,640,9432.0,2568,OK
+qkv_proj,column,65536,3145728,48,6144,512,8142.0,2431,OK
+qkv_proj,column,65536,3211264,49,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 73.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 70.19 GiB is free. Including non-PyTorch memory, this process has 114.11 GiB memory in use. Of the allocated memory 113.32 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,3276800,50,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 75.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 67.88 GiB is free. Including non-PyTorch memory, this process has 116.42 GiB memory in use. Of the allocated memory 115.63 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,3342336,51,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 76.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 65.56 GiB is free. Including non-PyTorch memory, this process has 118.73 GiB memory in use. Of the allocated memory 117.94 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,3407872,52,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 78.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 63.25 GiB is free. Including non-PyTorch memory, this process has 121.04 GiB memory in use. Of the allocated memory 120.26 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,3473408,53,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 79.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 60.94 GiB is free. Including non-PyTorch memory, this process has 123.36 GiB memory in use. Of the allocated memory 122.57 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,3538944,54,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 81.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 58.63 GiB is free. Including non-PyTorch memory, this process has 125.67 GiB memory in use. Of the allocated memory 124.88 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,3604480,55,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 82.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 56.31 GiB is free. Including non-PyTorch memory, this process has 127.98 GiB memory in use. Of the allocated memory 127.19 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,3670016,56,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 84.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 54.00 GiB is free. Including non-PyTorch memory, this process has 130.29 GiB memory in use. Of the allocated memory 129.51 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,3735552,57,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 85.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 51.69 GiB is free. Including non-PyTorch memory, this process has 132.61 GiB memory in use. Of the allocated memory 131.82 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,3801088,58,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 87.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 49.38 GiB is free. Including non-PyTorch memory, this process has 134.92 GiB memory in use. Of the allocated memory 134.13 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,3866624,59,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 88.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 47.06 GiB is free. Including non-PyTorch memory, this process has 137.23 GiB memory in use. Of the allocated memory 136.44 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,3932160,60,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 90.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 44.75 GiB is free. Including non-PyTorch memory, this process has 139.54 GiB memory in use. Of the allocated memory 138.76 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,3997696,61,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 91.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 42.44 GiB is free. Including non-PyTorch memory, this process has 141.86 GiB memory in use. Of the allocated memory 141.07 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,4063232,62,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 93.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 40.13 GiB is free. Including non-PyTorch memory, this process has 144.17 GiB memory in use. Of the allocated memory 143.38 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,4128768,63,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 94.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 37.81 GiB is free. Including non-PyTorch memory, this process has 146.48 GiB memory in use. Of the allocated memory 145.69 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,4194304,64,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 96.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 35.50 GiB is free. Including non-PyTorch memory, this process has 148.79 GiB memory in use. Of the allocated memory 148.01 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,4259840,65,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 97.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 33.19 GiB is free. Including non-PyTorch memory, this process has 151.11 GiB memory in use. Of the allocated memory 150.32 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,4325376,66,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 99.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 30.88 GiB is free. Including non-PyTorch memory, this process has 153.42 GiB memory in use. Of the allocated memory 152.63 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,4390912,67,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 100.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 28.56 GiB is free. Including non-PyTorch memory, this process has 155.73 GiB memory in use. Of the allocated memory 154.94 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,4456448,68,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 102.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 26.25 GiB is free. Including non-PyTorch memory, this process has 158.04 GiB memory in use. Of the allocated memory 157.26 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,4521984,69,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 103.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 23.94 GiB is free. Including non-PyTorch memory, this process has 160.36 GiB memory in use. Of the allocated memory 159.57 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,4587520,70,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 105.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 21.63 GiB is free. Including non-PyTorch memory, this process has 162.67 GiB memory in use. Of the allocated memory 161.88 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,4653056,71,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 106.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 19.31 GiB is free. Including non-PyTorch memory, this process has 164.98 GiB memory in use. Of the allocated memory 164.19 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,65536,4718592,72,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 108.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 17.00 GiB is free. Including non-PyTorch memory, this process has 167.29 GiB memory in use. Of the allocated memory 166.51 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,131072,1,6144,14336,8217.0,2810,OK
+qkv_proj,column,131072,262144,2,6144,7168,8096.0,2852,OK
+qkv_proj,column,131072,393216,3,6144,4864,8154.0,2882,OK
+qkv_proj,column,131072,524288,4,6144,3584,7759.0,2976,OK
+qkv_proj,column,131072,655360,5,6144,3072,8492.0,2913,OK
+qkv_proj,column,131072,786432,6,6144,2560,8780.0,2818,OK
+qkv_proj,column,131072,917504,7,6144,2304,9540.0,2723,OK
+qkv_proj,column,131072,1048576,8,6144,1792,7938.0,2909,OK
+qkv_proj,column,131072,1179648,9,6144,1664,9159.0,2634,OK
+qkv_proj,column,131072,1310720,10,6144,1536,8970.0,2758,OK
+qkv_proj,column,131072,1441792,11,6144,1408,9709.0,2569,OK
+qkv_proj,column,131072,1572864,12,6144,1280,9229.0,2681,OK
+qkv_proj,column,131072,1703936,13,6144,1280,10164.0,2637,OK
+qkv_proj,column,131072,1835008,14,6144,1152,9682.0,2683,OK
+qkv_proj,column,131072,1966080,15,6144,1152,10643.0,2615,OK
+qkv_proj,column,131072,2097152,16,6144,1024,10518.0,2509,OK
+qkv_proj,column,131072,2228224,17,6144,1024,11225.0,2498,OK
+qkv_proj,column,131072,2359296,18,6144,1024,11843.0,2507,OK
+qkv_proj,column,131072,2490368,19,6144,1024,12831.0,2442,OK
+qkv_proj,column,131072,2621440,20,6144,896,10929.0,2641,OK
+qkv_proj,column,131072,2752512,21,6144,896,11366.0,2666,OK
+qkv_proj,column,131072,2883584,22,6144,896,11778.0,2696,OK
+qkv_proj,column,131072,3014656,23,6144,896,12675.0,2619,OK
+qkv_proj,column,131072,3145728,24,6144,768,,,"ERR: CUDA out of memory. Tried to allocate 72.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 71.00 GiB is free. Including non-PyTorch memory, this process has 113.29 GiB memory in use. Of the allocated memory 112.51 GiB is allocated by PyTorch, and 11.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,3276800,25,6144,768,,,"ERR: CUDA out of memory. Tried to allocate 75.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 66.31 GiB is free. Including non-PyTorch memory, this process has 117.98 GiB memory in use. Of the allocated memory 117.20 GiB is allocated by PyTorch, and 11.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,3407872,26,6144,768,,,"ERR: CUDA out of memory. Tried to allocate 78.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 61.63 GiB is free. Including non-PyTorch memory, this process has 122.67 GiB memory in use. Of the allocated memory 121.88 GiB is allocated by PyTorch, and 11.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,3538944,27,6144,768,,,"ERR: CUDA out of memory. Tried to allocate 81.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 56.94 GiB is free. Including non-PyTorch memory, this process has 127.36 GiB memory in use. Of the allocated memory 126.57 GiB is allocated by PyTorch, and 11.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,3670016,28,6144,768,,,"ERR: CUDA out of memory. Tried to allocate 84.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 52.25 GiB is free. Including non-PyTorch memory, this process has 132.04 GiB memory in use. Of the allocated memory 131.26 GiB is allocated by PyTorch, and 11.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,3801088,29,6144,768,,,"ERR: CUDA out of memory. Tried to allocate 87.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 47.56 GiB is free. Including non-PyTorch memory, this process has 136.73 GiB memory in use. Of the allocated memory 135.95 GiB is allocated by PyTorch, and 11.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,3932160,30,6144,768,,,"ERR: CUDA out of memory. Tried to allocate 90.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 42.88 GiB is free. Including non-PyTorch memory, this process has 141.42 GiB memory in use. Of the allocated memory 140.63 GiB is allocated by PyTorch, and 11.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,4063232,31,6144,768,,,"ERR: CUDA out of memory. Tried to allocate 93.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 38.19 GiB is free. Including non-PyTorch memory, this process has 146.11 GiB memory in use. Of the allocated memory 145.32 GiB is allocated by PyTorch, and 11.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,4194304,32,6144,640,,,"ERR: CUDA out of memory. Tried to allocate 96.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 34.50 GiB is free. Including non-PyTorch memory, this process has 149.79 GiB memory in use. Of the allocated memory 149.01 GiB is allocated by PyTorch, and 12.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,4325376,33,6144,640,,,"ERR: CUDA out of memory. Tried to allocate 99.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 29.85 GiB is free. Including non-PyTorch memory, this process has 154.45 GiB memory in use. Of the allocated memory 153.66 GiB is allocated by PyTorch, and 12.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,4456448,34,6144,640,,,"ERR: CUDA out of memory. Tried to allocate 102.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 25.19 GiB is free. Including non-PyTorch memory, this process has 159.11 GiB memory in use. Of the allocated memory 158.32 GiB is allocated by PyTorch, and 12.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,4587520,35,6144,640,,,"ERR: CUDA out of memory. Tried to allocate 105.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 20.51 GiB is free. Including non-PyTorch memory, this process has 163.76 GiB memory in use. Of the allocated memory 162.98 GiB is allocated by PyTorch, and 12.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,4718592,36,6144,640,,,"ERR: CUDA out of memory. Tried to allocate 108.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 15.84 GiB is free. Including non-PyTorch memory, this process has 168.42 GiB memory in use. Of the allocated memory 167.63 GiB is allocated by PyTorch, and 12.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,4849664,37,6144,640,,,"ERR: CUDA out of memory. Tried to allocate 111.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 11.17 GiB is free. Including non-PyTorch memory, this process has 173.07 GiB memory in use. Of the allocated memory 172.29 GiB is allocated by PyTorch, and 12.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,4980736,38,6144,640,,,"ERR: CUDA out of memory. Tried to allocate 114.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 6.51 GiB is free. Including non-PyTorch memory, this process has 177.73 GiB memory in use. Of the allocated memory 176.94 GiB is allocated by PyTorch, and 12.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,5111808,39,6144,640,,,"ERR: CUDA out of memory. Tried to allocate 117.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 1.84 GiB is free. Including non-PyTorch memory, this process has 182.39 GiB memory in use. Of the allocated memory 181.60 GiB is allocated by PyTorch, and 12.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,5242880,40,6144,640,,,"ERR: CUDA out of memory. Tried to allocate 60.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 57.18 GiB is free. Including non-PyTorch memory, this process has 127.04 GiB memory in use. Of the allocated memory 126.26 GiB is allocated by PyTorch, and 12.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,5373952,41,6144,640,,,"ERR: CUDA out of memory. Tried to allocate 61.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 53.42 GiB is free. Including non-PyTorch memory, this process has 130.20 GiB memory in use. Of the allocated memory 129.41 GiB is allocated by PyTorch, and 12.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,5505024,42,6144,640,,,"ERR: CUDA out of memory. Tried to allocate 63.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 50.94 GiB is free. Including non-PyTorch memory, this process has 133.36 GiB memory in use. Of the allocated memory 132.57 GiB is allocated by PyTorch, and 12.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,5636096,43,6144,640,,,"ERR: CUDA out of memory. Tried to allocate 64.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 47.78 GiB is free. Including non-PyTorch memory, this process has 136.51 GiB memory in use. Of the allocated memory 135.73 GiB is allocated by PyTorch, and 12.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,5767168,44,6144,640,,,"ERR: CUDA out of memory. Tried to allocate 66.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 44.63 GiB is free. Including non-PyTorch memory, this process has 139.67 GiB memory in use. Of the allocated memory 138.88 GiB is allocated by PyTorch, and 12.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,5898240,45,6144,640,,,"ERR: CUDA out of memory. Tried to allocate 67.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 41.47 GiB is free. Including non-PyTorch memory, this process has 142.82 GiB memory in use. Of the allocated memory 142.04 GiB is allocated by PyTorch, and 12.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,6029312,46,6144,640,,,"ERR: CUDA out of memory. Tried to allocate 69.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 38.31 GiB is free. Including non-PyTorch memory, this process has 145.98 GiB memory in use. Of the allocated memory 145.19 GiB is allocated by PyTorch, and 12.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,6160384,47,6144,640,,,"ERR: CUDA out of memory. Tried to allocate 70.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 35.16 GiB is free. Including non-PyTorch memory, this process has 149.14 GiB memory in use. Of the allocated memory 148.35 GiB is allocated by PyTorch, and 12.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,6291456,48,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 72.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 33.50 GiB is free. Including non-PyTorch memory, this process has 150.79 GiB memory in use. Of the allocated memory 150.01 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,6422528,49,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 73.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 30.38 GiB is free. Including non-PyTorch memory, this process has 153.92 GiB memory in use. Of the allocated memory 153.13 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,6553600,50,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 75.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 27.25 GiB is free. Including non-PyTorch memory, this process has 157.04 GiB memory in use. Of the allocated memory 156.26 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,6684672,51,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 76.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 24.13 GiB is free. Including non-PyTorch memory, this process has 160.17 GiB memory in use. Of the allocated memory 159.38 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,6815744,52,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 78.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 21.00 GiB is free. Including non-PyTorch memory, this process has 163.29 GiB memory in use. Of the allocated memory 162.51 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,6946816,53,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 79.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 17.88 GiB is free. Including non-PyTorch memory, this process has 166.42 GiB memory in use. Of the allocated memory 165.63 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,7077888,54,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 81.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 14.75 GiB is free. Including non-PyTorch memory, this process has 169.54 GiB memory in use. Of the allocated memory 168.76 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,7208960,55,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 82.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 11.63 GiB is free. Including non-PyTorch memory, this process has 172.67 GiB memory in use. Of the allocated memory 171.88 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,7340032,56,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 84.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 8.50 GiB is free. Including non-PyTorch memory, this process has 175.79 GiB memory in use. Of the allocated memory 175.01 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,7471104,57,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 85.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 5.38 GiB is free. Including non-PyTorch memory, this process has 178.92 GiB memory in use. Of the allocated memory 178.13 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,7602176,58,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 87.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 2.25 GiB is free. Including non-PyTorch memory, this process has 182.04 GiB memory in use. Of the allocated memory 181.26 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,7733248,59,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 88.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 87.63 GiB is free. Including non-PyTorch memory, this process has 96.67 GiB memory in use. Of the allocated memory 95.88 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,7864320,60,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 90.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 86.00 GiB is free. Including non-PyTorch memory, this process has 98.29 GiB memory in use. Of the allocated memory 97.51 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,7995392,61,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 91.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 84.38 GiB is free. Including non-PyTorch memory, this process has 99.92 GiB memory in use. Of the allocated memory 99.13 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,8126464,62,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 93.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 82.75 GiB is free. Including non-PyTorch memory, this process has 101.54 GiB memory in use. Of the allocated memory 100.76 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,8257536,63,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 94.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 81.13 GiB is free. Including non-PyTorch memory, this process has 103.17 GiB memory in use. Of the allocated memory 102.38 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,8388608,64,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 96.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 79.50 GiB is free. Including non-PyTorch memory, this process has 104.79 GiB memory in use. Of the allocated memory 104.01 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,8519680,65,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 97.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 77.88 GiB is free. Including non-PyTorch memory, this process has 106.42 GiB memory in use. Of the allocated memory 105.63 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,8650752,66,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 99.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 76.25 GiB is free. Including non-PyTorch memory, this process has 108.04 GiB memory in use. Of the allocated memory 107.26 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,8781824,67,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 100.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 74.63 GiB is free. Including non-PyTorch memory, this process has 109.67 GiB memory in use. Of the allocated memory 108.88 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,8912896,68,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 102.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 73.00 GiB is free. Including non-PyTorch memory, this process has 111.29 GiB memory in use. Of the allocated memory 110.51 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,9043968,69,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 103.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 71.38 GiB is free. Including non-PyTorch memory, this process has 112.92 GiB memory in use. Of the allocated memory 112.13 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,9175040,70,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 105.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 69.75 GiB is free. Including non-PyTorch memory, this process has 114.54 GiB memory in use. Of the allocated memory 113.76 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,9306112,71,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 106.50 GiB. GPU 0 has a total capacity of 184.31 GiB of which 68.13 GiB is free. Including non-PyTorch memory, this process has 116.17 GiB memory in use. Of the allocated memory 115.38 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+qkv_proj,column,131072,9437184,72,6144,512,,,"ERR: CUDA out of memory. Tried to allocate 108.00 GiB. GPU 0 has a total capacity of 184.31 GiB of which 66.50 GiB is free. Including non-PyTorch memory, this process has 117.79 GiB memory in use. Of the allocated memory 117.01 GiB is allocated by PyTorch, and 14.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+o_proj,row,16384,16384,1,12288,6144,795.8,3109,OK
+o_proj,row,16384,32768,2,6144,6144,784.1,3155,OK
+o_proj,row,16384,49152,3,4096,6144,767.7,3223,OK
+o_proj,row,16384,65536,4,3072,6144,769.3,3216,OK
+o_proj,row,16384,81920,5,2560,6144,822.9,3132,OK
+o_proj,row,16384,98304,6,2048,6144,804.9,3074,OK
+o_proj,row,16384,114688,7,1792,6144,823.7,3066,OK
+o_proj,row,16384,131072,8,1536,6144,833.7,2968,OK
+o_proj,row,16384,147456,9,1408,6144,887.4,2875,OK
+o_proj,row,16384,163840,10,1280,6144,911.7,2826,OK
+o_proj,row,16384,180224,11,1152,6144,940.7,2712,OK
+o_proj,row,16384,196608,12,1024,6144,923.8,2678,OK
+o_proj,row,16384,212992,13,1024,6144,993.2,2699,OK
+o_proj,row,16384,229376,14,896,6144,985.7,2562,OK
+o_proj,row,16384,245760,15,896,6144,1061.0,2550,OK
+o_proj,row,16384,262144,16,768,6144,1010.0,2449,OK
+o_proj,row,16384,278528,17,768,6144,1057.0,2487,OK
+o_proj,row,16384,294912,18,768,6144,1125.0,2474,OK
+o_proj,row,16384,311296,19,768,6144,1191.0,2467,OK
+o_proj,row,16384,327680,20,640,6144,1121.0,2299,OK
+o_proj,row,16384,344064,21,640,6144,1177.0,2299,OK
+o_proj,row,16384,360448,22,640,6144,1238.0,2290,OK
+o_proj,row,16384,376832,23,640,6144,1289.0,2299,OK
+o_proj,row,16384,393216,24,512,6144,1173.0,2109,OK
+o_proj,row,16384,409600,25,512,6144,1224.0,2105,OK
+o_proj,row,16384,425984,26,512,6144,1270.0,2110,OK
+o_proj,row,16384,442368,27,512,6144,1321.0,2107,OK
+o_proj,row,16384,458752,28,512,6144,1377.0,2096,OK
+o_proj,row,16384,475136,29,512,6144,1428.0,2093,OK
+o_proj,row,16384,491520,30,512,6144,1472.0,2101,OK
+o_proj,row,16384,507904,31,512,6144,1530.0,2089,OK
+o_proj,row,16384,524288,32,384,6144,1321.0,1873,OK
+o_proj,row,16384,540672,33,384,6144,1366.0,1868,OK
+o_proj,row,16384,557056,34,384,6144,1416.0,1856,OK
+o_proj,row,16384,573440,35,384,6144,1455.0,1860,OK
+o_proj,row,16384,589824,36,384,6144,1500.0,1855,OK
+o_proj,row,16384,606208,37,384,6144,1543.0,1854,OK
+o_proj,row,16384,622592,38,384,6144,1583.0,1856,OK
+o_proj,row,16384,638976,39,384,6144,1625.0,1855,OK
+o_proj,row,16384,655360,40,384,6144,1663.0,1860,OK
+o_proj,row,16384,671744,41,384,6144,1709.0,1855,OK
+o_proj,row,16384,688128,42,384,6144,1750.0,1855,OK
+o_proj,row,16384,704512,43,384,6144,1804.0,1843,OK
+o_proj,row,16384,720896,44,384,6144,1839.0,1850,OK
+o_proj,row,16384,737280,45,384,6144,1885.0,1846,OK
+o_proj,row,16384,753664,46,384,6144,1932.0,1841,OK
+o_proj,row,16384,770048,47,384,6144,2020.0,1799,OK
+o_proj,row,16384,786432,48,256,6144,1705.0,1451,OK
+o_proj,row,16384,802816,49,256,6144,1744.0,1448,OK
+o_proj,row,16384,819200,50,256,6144,1769.0,1457,OK
+o_proj,row,16384,835584,51,256,6144,1857.0,1415,OK
+o_proj,row,16384,851968,52,256,6144,1853.0,1446,OK
+o_proj,row,16384,868352,53,256,6144,1903.0,1435,OK
+o_proj,row,16384,884736,54,256,6144,1921.0,1449,OK
+o_proj,row,16384,901120,55,256,6144,2015.0,1407,OK
+o_proj,row,16384,917504,56,256,6144,2067.0,1396,OK
+o_proj,row,16384,933888,57,256,6144,2088.0,1407,OK
+o_proj,row,16384,950272,58,256,6144,2105.0,1420,OK
+o_proj,row,16384,966656,59,256,6144,2109.0,1442,OK
+o_proj,row,16384,983040,60,256,6144,2194.0,1409,OK
+o_proj,row,16384,999424,61,256,6144,2220.0,1416,OK
+o_proj,row,16384,1015808,62,256,6144,2290.0,1395,OK
+o_proj,row,16384,1032192,63,256,6144,2253.0,1441,OK
+o_proj,row,16384,1048576,64,256,6144,2365.0,1395,OK
+o_proj,row,16384,1064960,65,256,6144,2350.0,1426,OK
+o_proj,row,16384,1081344,66,256,6144,2493.0,1364,OK
+o_proj,row,16384,1097728,67,256,6144,2534.0,1363,OK
+o_proj,row,16384,1114112,68,256,6144,2476.0,1415,OK
+o_proj,row,16384,1130496,69,256,6144,2502.0,1421,OK
+o_proj,row,16384,1146880,70,256,6144,2585.0,1396,OK
+o_proj,row,16384,1163264,71,256,6144,2690.0,1360,OK
+o_proj,row,16384,1179648,72,256,6144,2707.0,1371,OK
+o_proj,row,32768,32768,1,12288,6144,1598.0,3096,OK
+o_proj,row,32768,65536,2,6144,6144,1581.0,3130,OK
+o_proj,row,32768,98304,3,4096,6144,1547.0,3198,OK
+o_proj,row,32768,131072,4,3072,6144,1567.0,3157,OK
+o_proj,row,32768,163840,5,2560,6144,1651.0,3122,OK
+o_proj,row,32768,196608,6,2048,6144,1601.0,3090,OK
+o_proj,row,32768,229376,7,1792,6144,1685.0,2998,OK
+o_proj,row,32768,262144,8,1536,6144,1677.0,2950,OK
+o_proj,row,32768,294912,9,1408,6144,1765.0,2891,OK
+o_proj,row,32768,327680,10,1280,6144,1854.0,2780,OK
+o_proj,row,32768,360448,11,1152,6144,1891.0,2698,OK
+o_proj,row,32768,393216,12,1024,6144,1878.0,2635,OK
+o_proj,row,32768,425984,13,1024,6144,2065.0,2596,OK
+o_proj,row,32768,458752,14,896,6144,2006.0,2518,OK
+o_proj,row,32768,491520,15,896,6144,2102.0,2575,OK
+o_proj,row,32768,524288,16,768,6144,2068.0,2393,OK
+o_proj,row,32768,557056,17,768,6144,2229.0,2358,OK
+o_proj,row,32768,589824,18,768,6144,2279.0,2442,OK
+o_proj,row,32768,622592,19,768,6144,2511.0,2340,OK
+o_proj,row,32768,655360,20,640,6144,2308.0,2233,OK
+o_proj,row,32768,688128,21,640,6144,2375.0,2279,OK
+o_proj,row,32768,720896,22,640,6144,2558.0,2216,OK
+o_proj,row,32768,753664,23,640,6144,2693.0,2201,OK
+o_proj,row,32768,786432,24,512,6144,2464.0,2008,OK
+o_proj,row,32768,819200,25,512,6144,2544.0,2026,OK
+o_proj,row,32768,851968,26,512,6144,2618.0,2047,OK
+o_proj,row,32768,884736,27,512,6144,2731.0,2038,OK
+o_proj,row,32768,917504,28,512,6144,2845.0,2029,OK
+o_proj,row,32768,950272,29,512,6144,3012.0,1985,OK
+o_proj,row,32768,983040,30,512,6144,3128.0,1977,OK
+o_proj,row,32768,1015808,31,512,6144,3200.0,1997,OK
+o_proj,row,32768,1048576,32,384,6144,2762.0,1791,OK
+o_proj,row,32768,1081344,33,384,6144,2950.0,1730,OK
+o_proj,row,32768,1114112,34,384,6144,3006.0,1749,OK
+o_proj,row,32768,1146880,35,384,6144,3063.0,1767,OK
+o_proj,row,32768,1179648,36,384,6144,3195.0,1742,OK
+o_proj,row,32768,1212416,37,384,6144,3261.0,1754,OK
+o_proj,row,32768,1245184,38,384,6144,3383.0,1737,OK
+o_proj,row,32768,1277952,39,384,6144,3497.0,1724,OK
+o_proj,row,32768,1310720,40,384,6144,3600.0,1718,OK
+o_proj,row,32768,1343488,41,384,6144,3808.0,1665,OK
+o_proj,row,32768,1376256,42,384,6144,3762.0,1726,OK
+o_proj,row,32768,1409024,43,384,6144,3889.0,1710,OK
+o_proj,row,32768,1441792,44,384,6144,4040.0,1684,OK
+o_proj,row,32768,1474560,45,384,6144,4069.0,1710,OK
+o_proj,row,32768,1507328,46,384,6144,4189.0,1698,OK
+o_proj,row,32768,1540096,47,384,6144,4284.0,1696,OK
+o_proj,row,32768,1572864,48,256,6144,3577.0,1383,OK
+o_proj,row,32768,1605632,49,256,6144,3634.0,1390,OK
+o_proj,row,32768,1638400,50,256,6144,3898.0,1322,OK
+o_proj,row,32768,1671168,51,256,6144,3911.0,1344,OK
+o_proj,row,32768,1703936,52,256,6144,4015.0,1335,OK
+o_proj,row,32768,1736704,53,256,6144,4182.0,1306,OK
+o_proj,row,32768,1769472,54,256,6144,4220.0,1319,OK
+o_proj,row,32768,1802240,55,256,6144,4219.0,1344,OK
+o_proj,row,32768,1835008,56,256,6144,4313.0,1338,OK
+o_proj,row,32768,1867776,57,256,6144,4613.0,1274,OK
+o_proj,row,32768,1900544,58,256,6144,4536.0,1318,OK
+o_proj,row,32768,1933312,59,256,6144,4753.0,1280,OK
+o_proj,row,32768,1966080,60,256,6144,4837.0,1279,OK
+o_proj,row,32768,1998848,61,256,6144,4833.0,1301,OK
+o_proj,row,32768,2031616,62,256,6144,4910.0,1302,OK
+o_proj,row,32768,2064384,63,256,6144,5115.0,1270,OK
+o_proj,row,32768,2097152,64,256,6144,5169.0,1276,OK
+o_proj,row,32768,2129920,65,256,6144,5081.0,1319,OK
+o_proj,row,32768,2162688,66,256,6144,5154.0,1320,OK
+o_proj,row,32768,2195456,67,256,6144,5377.0,1284,OK
+o_proj,row,32768,2228224,68,256,6144,5339.0,1313,OK
+o_proj,row,32768,2260992,69,256,6144,5594.0,1271,OK
+o_proj,row,32768,2293760,70,256,6144,5517.0,1308,OK
+o_proj,row,32768,2326528,71,256,6144,5568.0,1314,OK
+o_proj,row,32768,2359296,72,256,6144,5721.0,1297,OK
+o_proj,row,65536,65536,1,12288,6144,3275.0,3022,OK
+o_proj,row,65536,131072,2,6144,6144,3147.0,3144,OK
+o_proj,row,65536,196608,3,4096,6144,3155.0,3136,OK
+o_proj,row,65536,262144,4,3072,6144,3170.0,3122,OK
+o_proj,row,65536,327680,5,2560,6144,3358.0,3070,OK
+o_proj,row,65536,393216,6,2048,6144,3243.0,3051,OK
+o_proj,row,65536,458752,7,1792,6144,3440.0,2937,OK
+o_proj,row,65536,524288,8,1536,6144,3374.0,2933,OK
+o_proj,row,65536,589824,9,1408,6144,3716.0,2746,OK
+o_proj,row,65536,655360,10,1280,6144,3893.0,2648,OK
+o_proj,row,65536,720896,11,1152,6144,3865.0,2640,OK
+o_proj,row,65536,786432,12,1024,6144,3858.0,2565,OK
+o_proj,row,65536,851968,13,1024,6144,4339.0,2471,OK
+o_proj,row,65536,917504,14,896,6144,4238.0,2384,OK
+o_proj,row,65536,983040,15,896,6144,4529.0,2390,OK
+o_proj,row,65536,1048576,16,768,6144,4452.0,2223,OK
+o_proj,row,65536,1114112,17,768,6144,4708.0,2233,OK
+o_proj,row,65536,1179648,18,768,6144,5058.0,2201,OK
+o_proj,row,65536,1245184,19,768,6144,5349.0,2197,OK
+o_proj,row,65536,1310720,20,640,6144,5095.0,2023,OK
+o_proj,row,65536,1376256,21,640,6144,5335.0,2029,OK
+o_proj,row,65536,1441792,22,640,6144,5281.0,2147,OK
+o_proj,row,65536,1507328,23,640,6144,5870.0,2019,OK
+o_proj,row,65536,1572864,24,512,6144,5347.0,1851,OK
+o_proj,row,65536,1638400,25,512,6144,5352.0,1926,OK
+o_proj,row,65536,1703936,26,512,6144,5744.0,1866,OK
+o_proj,row,65536,1769472,27,512,6144,5896.0,1888,OK
+o_proj,row,65536,1835008,28,512,6144,6063.0,1904,OK
+o_proj,row,65536,1900544,29,512,6144,6314.0,1894,OK
+o_proj,row,65536,1966080,30,512,6144,6619.0,1869,OK
+o_proj,row,65536,2031616,31,512,6144,6702.0,1907,OK
+o_proj,row,65536,2097152,32,384,6144,5886.0,1681,OK
+o_proj,row,65536,2162688,33,384,6144,6063.0,1683,OK
+o_proj,row,65536,2228224,34,384,6144,6407.0,1641,OK
+o_proj,row,65536,2293760,35,384,6144,6534.0,1656,OK
+o_proj,row,65536,2359296,36,384,6144,6775.0,1643,OK
+o_proj,row,65536,2424832,37,384,6144,6880.0,1663,OK
+o_proj,row,65536,2490368,38,384,6144,7185.0,1635,OK
+o_proj,row,65536,2555904,39,384,6144,7317.0,1648,OK
+o_proj,row,65536,2621440,40,384,6144,7349.0,1683,OK
+o_proj,row,65536,2686976,41,384,6144,7681.0,1651,OK
+o_proj,row,65536,2752512,42,384,6144,7941.0,1636,OK
+o_proj,row,65536,2818048,43,384,6144,8115.0,1639,OK
+o_proj,row,65536,2883584,44,384,6144,8233.0,1653,OK
+o_proj,row,65536,2949120,45,384,6144,8622.0,1614,OK
+o_proj,row,65536,3014656,46,384,6144,8687.0,1637,OK
+o_proj,row,65536,3080192,47,384,6144,8788.0,1654,OK
+o_proj,row,65536,3145728,48,256,6144,7964.0,1243,OK
+o_proj,row,65536,3211264,49,256,6144,7971.0,1267,OK
+o_proj,row,65536,3276800,50,256,6144,7994.0,1289,OK
+o_proj,row,65536,3342336,51,256,6144,8235.0,1277,OK
+o_proj,row,65536,3407872,52,256,6144,8403.0,1276,OK
+o_proj,row,65536,3473408,53,256,6144,8699.0,1256,OK
+o_proj,row,65536,3538944,54,256,6144,8744.0,1273,OK
+o_proj,row,65536,3604480,55,256,6144,9206.0,1232,OK
+o_proj,row,65536,3670016,56,256,6144,9329.0,1238,OK
+o_proj,row,65536,3735552,57,256,6144,9467.0,1241,OK
+o_proj,row,65536,3801088,58,256,6144,9297.0,1286,OK
+o_proj,row,65536,3866624,59,256,6144,9886.0,1230,OK
+o_proj,row,65536,3932160,60,256,6144,10156.0,1218,OK
+o_proj,row,65536,3997696,61,256,6144,10027.0,1254,OK
+o_proj,row,65536,4063232,62,256,6144,10333.0,1237,OK
+o_proj,row,65536,4128768,63,256,6144,10570.0,1229,OK
+o_proj,row,65536,4194304,64,256,6144,10692.0,1234,OK
+o_proj,row,65536,4259840,65,256,6144,10863.0,1234,OK
+o_proj,row,65536,4325376,66,256,6144,11108.0,1225,OK
+o_proj,row,65536,4390912,67,256,6144,11327.0,1219,OK
+o_proj,row,65536,4456448,68,256,6144,11450.0,1224,OK
+o_proj,row,65536,4521984,69,256,6144,11734.0,1212,OK
+o_proj,row,65536,4587520,70,256,6144,11633.0,1241,OK
+o_proj,row,65536,4653056,71,256,6144,12022.0,1218,OK
+o_proj,row,65536,4718592,72,256,6144,12196.0,1217,OK
+o_proj,row,131072,131072,1,12288,6144,7077.0,2797,OK
+o_proj,row,131072,262144,2,6144,6144,6958.0,2844,OK
+o_proj,row,131072,393216,3,4096,6144,6835.0,2896,OK
+o_proj,row,131072,524288,4,3072,6144,6763.0,2926,OK
+o_proj,row,131072,655360,5,2560,6144,7220.0,2855,OK
+o_proj,row,131072,786432,6,2048,6144,7108.0,2784,OK
+o_proj,row,131072,917504,7,1792,6144,7317.0,2761,OK
+o_proj,row,131072,1048576,8,1536,6144,7376.0,2683,OK
+o_proj,row,131072,1179648,9,1408,6144,7868.0,2594,OK
+o_proj,row,131072,1310720,10,1280,6144,8147.0,2530,OK
+o_proj,row,131072,1441792,11,1152,6144,8378.0,2436,OK
+o_proj,row,131072,1572864,12,1024,6144,8264.0,2395,OK
+o_proj,row,131072,1703936,13,1024,6144,8975.0,2389,OK
+o_proj,row,131072,1835008,14,896,6144,8737.0,2312,OK
+o_proj,row,131072,1966080,15,896,6144,9654.0,2242,OK
+o_proj,row,131072,2097152,16,768,6144,9227.0,2145,OK
+o_proj,row,131072,2228224,17,768,6144,10003.0,2102,OK
+o_proj,row,131072,2359296,18,768,6144,10448.0,2131,OK
+o_proj,row,131072,2490368,19,768,6144,11304.0,2079,OK
+o_proj,row,131072,2621440,20,640,6144,10746.0,1918,OK
+o_proj,row,131072,2752512,21,640,6144,11110.0,1948,OK
+o_proj,row,131072,2883584,22,640,6144,11707.0,1937,OK
+o_proj,row,131072,3014656,23,640,6144,12784.0,1855,OK
+o_proj,row,131072,3145728,24,512,6144,11232.0,1762,OK
+o_proj,row,131072,3276800,25,512,6144,11814.0,1745,OK
+o_proj,row,131072,3407872,26,512,6144,12303.0,1743,OK
+o_proj,row,131072,3538944,27,512,6144,12719.0,1751,OK
+o_proj,row,131072,3670016,28,512,6144,13479.0,1713,OK
+o_proj,row,131072,3801088,29,512,6144,13870.0,1724,OK
+o_proj,row,131072,3932160,30,512,6144,14414.0,1716,OK
+o_proj,row,131072,4063232,31,512,6144,14810.0,1726,OK
+o_proj,row,131072,4194304,32,384,6144,12773.0,1549,OK
+o_proj,row,131072,4325376,33,384,6144,13047.0,1564,OK
+o_proj,row,131072,4456448,34,384,6144,13649.0,1541,OK
+o_proj,row,131072,4587520,35,384,6144,14029.0,1543,OK
+o_proj,row,131072,4718592,36,384,6144,14665.0,1518,OK
+o_proj,row,131072,4849664,37,384,6144,15135.0,1512,OK
+o_proj,row,131072,4980736,38,384,6144,15384.0,1528,OK
+o_proj,row,131072,5111808,39,384,6144,16450.0,1466,OK
+o_proj,row,131072,5242880,40,384,6144,16425.0,1506,OK
+o_proj,row,131072,5373952,41,384,6144,17076.0,1485,OK
+o_proj,row,131072,5505024,42,384,6144,17236.0,1507,OK
+o_proj,row,131072,5636096,43,384,6144,17668.0,1505,OK
+o_proj,row,131072,5767168,44,384,6144,18014.0,1511,OK
+o_proj,row,131072,5898240,45,384,6144,18632.0,1494,OK
+o_proj,row,131072,6029312,46,384,6144,18548.0,1534,OK
+o_proj,row,131072,6160384,47,384,6144,19249.0,1510,OK
+o_proj,row,131072,6291456,48,256,6144,16470.0,1202,OK
+o_proj,row,131072,6422528,49,256,6144,16731.0,1208,OK
+o_proj,row,131072,6553600,50,256,6144,17017.0,1211,OK
+o_proj,row,131072,6684672,51,256,6144,17560.0,1198,OK
+o_proj,row,131072,6815744,52,256,6144,17932.0,1196,OK
+o_proj,row,131072,6946816,53,256,6144,18128.0,1205,OK
+o_proj,row,131072,7077888,54,256,6144,18429.0,1208,OK
+o_proj,row,131072,7208960,55,256,6144,18772.0,1208,OK
+o_proj,row,131072,7340032,56,256,6144,19004.0,1215,OK
+o_proj,row,131072,7471104,57,256,6144,19580.0,1200,OK
+o_proj,row,131072,7602176,58,256,6144,19753.0,1211,OK
+o_proj,row,131072,7733248,59,256,6144,20151.0,1207,OK
+o_proj,row,131072,7864320,60,256,6144,20708.0,1195,OK
+o_proj,row,131072,7995392,61,256,6144,20890.0,1204,OK
+o_proj,row,131072,8126464,62,256,6144,21296.0,1200,OK
+o_proj,row,131072,8257536,63,256,6144,21471.0,1210,OK
+o_proj,row,131072,8388608,64,256,6144,21688.0,1217,OK
+o_proj,row,131072,8519680,65,256,6144,22141.0,1210,OK
+o_proj,row,131072,8650752,66,256,6144,22633.0,1202,OK
+o_proj,row,131072,8781824,67,256,6144,22836.0,1210,OK
+o_proj,row,131072,8912896,68,256,6144,23142.0,1212,OK
+o_proj,row,131072,9043968,69,256,6144,23454.0,1213,OK
+o_proj,row,131072,9175040,70,256,6144,23805.0,1212,OK
+o_proj,row,131072,9306112,71,256,6144,24102.0,1215,OK
+o_proj,row,131072,9437184,72,256,6144,24519.0,1211,OK

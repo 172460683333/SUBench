@@ -1,0 +1,4 @@
+# Large data files (download via download_data.sh)
+data/trace/
+data/Qwen3-Coder-EP/
+data/benchmarks/
