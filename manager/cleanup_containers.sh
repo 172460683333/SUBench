@@ -162,7 +162,7 @@ if [ -n "$MASTER_IP" ]; then
 import yaml
 with open('$CONFIG_FILE', 'r') as f:
     config = yaml.safe_load(f)
-    print(config.get('workspace_path', '/data/workspace/benchmark'))
+    print(config.get('workspace_path', '.'))
 ")
     fi
     if [ -n "$PD_MODE" ]; then
@@ -181,7 +181,7 @@ else
 import yaml
 with open('$CONFIG_FILE', 'r') as f:
     config = yaml.safe_load(f)
-    print(config.get('workspace_path', '/data/workspace/benchmark'))
+    print(config.get('workspace_path', '.'))
 ")
     fi
     IP_LIST=$(python3 manager/node_discovery.py --config "$CONFIG_FILE" 2>/dev/null)
@@ -250,7 +250,7 @@ cleanup_node_containers() {
             fi
 
             RUNNING_REQS=$(python3 manager/ssh_util.py exec_in_container "$NODE" "$MASTER_CONTAINER" \
-                "tail -1 /data/workspace/benchmark/log/worker/*node*_rank0.log 2>/dev/null | grep -oP '#running-req: \K[0-9]+' || tail -1 /data/workspace/benchmark/log/worker/node*_*.log 2>/dev/null | grep -oP '#running-req: \K[0-9]+' || echo '0'" 2>/dev/null | grep -v "Warning" | grep -v "^env$" | tail -1)
+                "tail -1 ${WORKSPACE_PATH}/log/worker/*node*_rank0.log 2>/dev/null | grep -oP '#running-req: \K[0-9]+' || tail -1 ${WORKSPACE_PATH}/log/worker/node*_*.log 2>/dev/null | grep -oP '#running-req: \K[0-9]+' || echo '0'" 2>/dev/null | grep -v "Warning" | grep -v "^env$" | tail -1)
 
             if [ "$RUNNING_REQS" = "0" ] || [ -z "$RUNNING_REQS" ]; then
                 break

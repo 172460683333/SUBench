@@ -7,12 +7,12 @@ using flashinfer's TRTLLM fmhaSm100f kernels via sglang's attention backend.
 Usage:
     # MLA: DeepSeek-R1 (auto-detect from model config, use --num-q-heads for per-GPU)
     python attention_benchmark.py \
-        --model /data/models/DeepSeek-R1 \
+        --model /path/to/DeepSeek-R1 \
         --num-q-heads 128
 
     # QGA: Qwen3-Coder-480B (specify per-GPU heads directly)
     python attention_benchmark.py \
-        --model /data/models/Qwen3-Coder-480B-A35B-Instruct-FP8 \
+        --model /path/to/Qwen3-Coder-480B-A35B-Instruct-FP8 \
         --num-q-heads 16 --num-kv-heads 1
 
     # Manual mode without model config
