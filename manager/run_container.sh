@@ -102,11 +102,12 @@ if [ -z "$CUR_NODE" ] || [ -z "$MASTER_IP" ]; then
 fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+cd "$PROJECT_ROOT"
 
 # Auto-complete master IP: if only last octet given, match from discovered nodes
 if [[ "$MASTER_IP" =~ ^[0-9]+$ ]]; then
-    DISCOVERED_IPS=$(python3 node_discovery.py --config "$CONFIG_FILE" 2>/dev/null)
+    DISCOVERED_IPS=$(python3 manager/node_discovery.py --config "$CONFIG_FILE" 2>/dev/null)
     MATCHED_IP=$(echo "$DISCOVERED_IPS" | tr ' ' '\n' | grep "\.${MASTER_IP}$" | head -1)
     if [ -n "$MATCHED_IP" ]; then
         MASTER_IP="$MATCHED_IP"
@@ -146,7 +147,7 @@ EOF
 echo "  Master IP: $MASTER_IP"
 
 # Discover node IPs: config.yaml ip_list first, then auto-discovery
-IP_LIST=$(python3 node_discovery.py --config "$CONFIG_FILE" 2>/dev/null)
+IP_LIST=$(python3 manager/node_discovery.py --config "$CONFIG_FILE" 2>/dev/null)
 if [ -z "$IP_LIST" ]; then
     echo -e "${RED}Error: No nodes discovered. Set ip_list in config.yaml or ensure nvidia-imex-ctl is available.${NC}"
     exit 1
@@ -249,7 +250,7 @@ for NODE in $IP_LIST; do
     echo "  Checking $NODE..."
     # Launch check in background
     (
-        RESULT=$(python3 ssh_util.py check_gpu "$NODE" --gpus "$GPUS_PER_NODE" 2>/dev/null | grep -E '^\{.*\}$' | tail -1)
+        RESULT=$(python3 manager/ssh_util.py check_gpu "$NODE" --gpus "$GPUS_PER_NODE" 2>/dev/null | grep -E '^\{.*\}$' | tail -1)
         if [ -z "$RESULT" ]; then
             RESULT='{"all_free": false}'
         fi
@@ -368,7 +369,7 @@ for NODE in "${SELECTED_NODES[@]}"; do
     echo "  Checking container on $NODE (rank $RANK)..."
 
     # Check if container is already running (|| true to prevent set -e from exiting)
-    RUNNING_CHECK=$(python3 ssh_util.py exec_on_node "$NODE" \
+    RUNNING_CHECK=$(python3 manager/ssh_util.py exec_on_node "$NODE" \
         "pouch ps | grep -w $CONTAINER_NAME | grep -w Up" 2>/dev/null || true)
 
     if [ -n "$RUNNING_CHECK" ]; then
@@ -377,7 +378,7 @@ for NODE in "${SELECTED_NODES[@]}"; do
         echo "    Container not running, creating new one..."
 
         # Clean old container if exists (remote_utils will add sudo automatically)
-        python3 ssh_util.py exec_on_node "$NODE" \
+        python3 manager/ssh_util.py exec_on_node "$NODE" \
             "pouch rm -f $CONTAINER_NAME 2>/dev/null || true" >/dev/null 2>&1 || true
 
         # Build environment variables string
@@ -424,7 +425,7 @@ $IMAGE \
 sleep infinity"
 
         # Launch container (remote_utils will add sudo automatically)
-        RESULT=$(python3 ssh_util.py exec_on_node "$NODE" \
+        RESULT=$(python3 manager/ssh_util.py exec_on_node "$NODE" \
             "$POUCH_CMD" 2>&1)
 
         if [ $? -eq 0 ]; then
@@ -450,7 +451,7 @@ for NODE in "${SELECTED_NODES[@]}"; do
     echo "  Cleaning processes on $NODE..."
 
     # Clean processes ONLY in container (not on host to avoid affecting other users)
-    python3 ssh_util.py exec_in_container "$NODE" "$CONTAINER_NAME" \
+    python3 manager/ssh_util.py exec_in_container "$NODE" "$CONTAINER_NAME" \
         "pkill -9 -f sglang 2>/dev/null || true; pkill -9 python 2>/dev/null || true" >/dev/null 2>&1 || true
 
     RANK=$((RANK + 1))
@@ -470,11 +471,11 @@ for NODE in "${SELECTED_NODES[@]}"; do
     # Install sentencepiece, netifaces and other dependencies
     if [ -n "$PD_MODE" ]; then
         # Install PD-specific dependencies in addition to standard ones
-        python3 ssh_util.py exec_in_container "$NODE" "$CONTAINER_NAME" \
+        python3 manager/ssh_util.py exec_in_container "$NODE" "$CONTAINER_NAME" \
             "pip install sentencepiece netifaces uv mooncake-transfer-engine -q" >/dev/null 2>&1 &
     else
         # Install standard dependencies only
-        python3 ssh_util.py exec_in_container "$NODE" "$CONTAINER_NAME" \
+        python3 manager/ssh_util.py exec_in_container "$NODE" "$CONTAINER_NAME" \
             "pip install sentencepiece netifaces -q" >/dev/null 2>&1 &
     fi
 

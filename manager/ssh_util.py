@@ -16,7 +16,8 @@ import os
 import sys
 from typing import Optional
 
-# Import functions from remote_utils
+# Ensure manager/ directory is in Python path for sibling imports
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import remote_utils
 
 

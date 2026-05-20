@@ -86,11 +86,12 @@ if [ -z "$COMMAND" ] || [ -z "$MASTER_IP" ]; then
 fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+cd "$PROJECT_ROOT"
 
 # Auto-complete master IP: if only last octet given, match from discovered nodes
 if [[ "$MASTER_IP" =~ ^[0-9]+$ ]]; then
-    DISCOVERED_IPS=$(python3 node_discovery.py --config "$CONFIG_FILE" 2>/dev/null)
+    DISCOVERED_IPS=$(python3 manager/node_discovery.py --config "$CONFIG_FILE" 2>/dev/null)
     MATCHED_IP=$(echo "$DISCOVERED_IPS" | tr ' ' '\n' | grep "\.${MASTER_IP}$" | head -1)
     if [ -n "$MATCHED_IP" ]; then
         MASTER_IP="$MATCHED_IP"
@@ -486,7 +487,7 @@ for NODE in "${NODES[@]}"; do
     fi
 
     # Execute in container (in background using &)
-    python3 ssh_util.py exec_in_container "$NODE" "$CONTAINER_NAME" \
+    python3 manager/ssh_util.py exec_in_container "$NODE" "$CONTAINER_NAME" \
         "$LAUNCH_CMD" >/dev/null 2>&1 &
 
     # Note: Cannot check exit status immediately since command runs in background

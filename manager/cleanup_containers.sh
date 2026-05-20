@@ -98,7 +98,7 @@ export RED GREEN YELLOW NC
 
 # Auto-complete master IP: if only last octet given, match from discovered nodes
 if [[ -n "$MASTER_IP" ]] && [[ "$MASTER_IP" =~ ^[0-9]+$ ]]; then
-    DISCOVERED_IPS=$(python3 node_discovery.py --config "$CONFIG_FILE" 2>/dev/null)
+    DISCOVERED_IPS=$(python3 manager/node_discovery.py --config "$CONFIG_FILE" 2>/dev/null)
     MATCHED_IP=$(echo "$DISCOVERED_IPS" | tr ' ' '\n' | grep "\.${MASTER_IP}$" | head -1)
     if [ -n "$MATCHED_IP" ]; then
         MASTER_IP="$MATCHED_IP"
@@ -111,6 +111,7 @@ fi
 
 # Configuration
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 echo -e "${GREEN}======================================${NC}"
 echo -e "${GREEN}SGLang Container Cleanup${NC}"
@@ -129,18 +130,18 @@ if [ -n "$MASTER_IP" ]; then
     # Mode 1: Clean specific deployment
     # Try to find nodelist file (unified or PD mode)
     if [ -n "$PD_MODE" ]; then
-        NODE_LIST_FILE="$SCRIPT_DIR/tmp/nodelist_${PD_MODE}_${MASTER_IP}"
+        NODE_LIST_FILE="$PROJECT_ROOT/tmp/nodelist_${PD_MODE}_${MASTER_IP}"
     else
         # Try unified mode first
-        NODE_LIST_FILE="$SCRIPT_DIR/tmp/nodelist_${MASTER_IP}"
+        NODE_LIST_FILE="$PROJECT_ROOT/tmp/nodelist_${MASTER_IP}"
         if [ ! -f "$NODE_LIST_FILE" ]; then
             # Try PD modes (auto-detect)
-            if [ -f "$SCRIPT_DIR/tmp/nodelist_prefill_${MASTER_IP}" ]; then
-                NODE_LIST_FILE="$SCRIPT_DIR/tmp/nodelist_prefill_${MASTER_IP}"
+            if [ -f "$PROJECT_ROOT/tmp/nodelist_prefill_${MASTER_IP}" ]; then
+                NODE_LIST_FILE="$PROJECT_ROOT/tmp/nodelist_prefill_${MASTER_IP}"
                 PD_MODE="prefill"
                 echo "Auto-detected PD mode: prefill"
-            elif [ -f "$SCRIPT_DIR/tmp/nodelist_decode_${MASTER_IP}" ]; then
-                NODE_LIST_FILE="$SCRIPT_DIR/tmp/nodelist_decode_${MASTER_IP}"
+            elif [ -f "$PROJECT_ROOT/tmp/nodelist_decode_${MASTER_IP}" ]; then
+                NODE_LIST_FILE="$PROJECT_ROOT/tmp/nodelist_decode_${MASTER_IP}"
                 PD_MODE="decode"
                 echo "Auto-detected PD mode: decode"
             fi
@@ -183,7 +184,7 @@ with open('$CONFIG_FILE', 'r') as f:
     print(config.get('workspace_path', '/data/workspace/benchmark'))
 ")
     fi
-    IP_LIST=$(python3 node_discovery.py --config "$CONFIG_FILE" 2>/dev/null)
+    IP_LIST=$(python3 manager/node_discovery.py --config "$CONFIG_FILE" 2>/dev/null)
     echo "Cleaning all discovered nodes"
     SPECIFIC_DEPLOYMENT=false
 fi
@@ -223,7 +224,7 @@ cleanup_node_containers() {
         CONTAINER_FILTER="subench_sglang"
     fi
 
-    CONTAINERS=$(python3 ssh_util.py exec_on_node "$NODE" \
+    CONTAINERS=$(python3 manager/ssh_util.py exec_on_node "$NODE" \
         "pouch ps -aq --filter name=${CONTAINER_FILTER} 2>/dev/null" 2>/dev/null | grep -v "Warning" | grep -v "^env$")
 
     if [ -z "$CONTAINERS" ]; then
@@ -248,7 +249,7 @@ cleanup_node_containers() {
                 MASTER_CONTAINER="subench_sglang_benchmark_rank0"
             fi
 
-            RUNNING_REQS=$(python3 ssh_util.py exec_in_container "$NODE" "$MASTER_CONTAINER" \
+            RUNNING_REQS=$(python3 manager/ssh_util.py exec_in_container "$NODE" "$MASTER_CONTAINER" \
                 "tail -1 /data/workspace/benchmark/log/worker/*node*_rank0.log 2>/dev/null | grep -oP '#running-req: \K[0-9]+' || tail -1 /data/workspace/benchmark/log/worker/node*_*.log 2>/dev/null | grep -oP '#running-req: \K[0-9]+' || echo '0'" 2>/dev/null | grep -v "Warning" | grep -v "^env$" | tail -1)
 
             if [ "$RUNNING_REQS" = "0" ] || [ -z "$RUNNING_REQS" ]; then
@@ -262,10 +263,10 @@ cleanup_node_containers() {
     echo "    Killing Python processes in containers on $NODE..."
     for CONTAINER in $CONTAINERS; do
         # Kill all Python processes in the container
-        python3 ssh_util.py exec_on_node "$NODE" \
+        python3 manager/ssh_util.py exec_on_node "$NODE" \
             "pouch exec $CONTAINER pkill -9 python 2>/dev/null || true" >/dev/null 2>&1 || true
         # Also kill specific SGLang processes
-        python3 ssh_util.py exec_on_node "$NODE" \
+        python3 manager/ssh_util.py exec_on_node "$NODE" \
             "pouch exec $CONTAINER pkill -9 -f 'sglang' 2>/dev/null || true" >/dev/null 2>&1 || true
     done
 
@@ -274,13 +275,13 @@ cleanup_node_containers() {
 
     # Stop containers with timeout
     for CONTAINER in $CONTAINERS; do
-        python3 ssh_util.py exec_on_node "$NODE" \
+        python3 manager/ssh_util.py exec_on_node "$NODE" \
             "pouch stop --time $TIMEOUT $CONTAINER 2>/dev/null" >/dev/null 2>&1 || true
     done
 
     # Remove containers
     for CONTAINER in $CONTAINERS; do
-        python3 ssh_util.py exec_on_node "$NODE" \
+        python3 manager/ssh_util.py exec_on_node "$NODE" \
             "pouch rm -f $CONTAINER 2>/dev/null" >/dev/null 2>&1 || true
     done
 
@@ -322,7 +323,7 @@ kill_node_processes() {
     fi
 
     # Get list of containers matching our filter
-    CONTAINERS=$(python3 ssh_util.py exec_on_node "$NODE" \
+    CONTAINERS=$(python3 manager/ssh_util.py exec_on_node "$NODE" \
         "pouch ps -aq --filter name=${CONTAINER_FILTER} 2>/dev/null" 2>/dev/null | grep -v "Warning" | grep -v "^env$")
 
     if [ -z "$CONTAINERS" ]; then
@@ -333,11 +334,11 @@ kill_node_processes() {
     # Kill processes ONLY inside our containers (not on host)
     for CONTAINER in $CONTAINERS; do
         # Kill sglang processes
-        python3 ssh_util.py exec_on_node "$NODE" \
+        python3 manager/ssh_util.py exec_on_node "$NODE" \
             "pouch exec $CONTAINER pkill -9 -f sglang 2>/dev/null || true" >/dev/null 2>&1 || true
 
         # Kill python processes
-        python3 ssh_util.py exec_on_node "$NODE" \
+        python3 manager/ssh_util.py exec_on_node "$NODE" \
             "pouch exec $CONTAINER pkill -9 python 2>/dev/null || true" >/dev/null 2>&1 || true
     done
 
@@ -388,7 +389,7 @@ verify_node_cleanup() {
         CONTAINER_FILTER="subench_sglang"
     fi
 
-    REMAINING=$(python3 ssh_util.py exec_on_node "$NODE" \
+    REMAINING=$(python3 manager/ssh_util.py exec_on_node "$NODE" \
         "pouch ps -a 2>/dev/null | grep ${CONTAINER_FILTER} | wc -l" 2>/dev/null | grep -v "Warning" | grep -v "^env$" | tail -1)
 
     if [ -z "$REMAINING" ]; then
@@ -434,7 +435,7 @@ if [ "$FORCE_GPU_RESET" = true ]; then
     for NODE in $IP_LIST; do
         echo "  Resetting GPUs on $NODE..."
         # nvidia-smi --gpu-reset requires elevated privileges
-        python3 ssh_util.py exec_on_node "$NODE" \
+        python3 manager/ssh_util.py exec_on_node "$NODE" \
             "nvidia-smi --gpu-reset 2>/dev/null || echo 'GPU reset not supported on this node'" 2>/dev/null &
     done
     wait
@@ -450,12 +451,12 @@ if [ "$CLEAN_SHARED_MEMORY" = true ]; then
     for NODE in $IP_LIST; do
         echo "  Cleaning SHM/IPC on $NODE..."
         # Clean CUDA IPC handles and shared memory
-        python3 ssh_util.py exec_on_node "$NODE" \
+        python3 manager/ssh_util.py exec_on_node "$NODE" \
             "rm -rf /dev/shm/cuda_* /dev/shm/torch_* /dev/shm/nvidia_* 2>/dev/null || true" >/dev/null 2>&1 &
         # Clean orphaned SysV IPC resources
-        python3 ssh_util.py exec_on_node "$NODE" \
+        python3 manager/ssh_util.py exec_on_node "$NODE" \
             "ipcs -m | awk 'NR>3 {print \$2}' | xargs -r ipcrm -m 2>/dev/null || true" >/dev/null 2>&1 &
-        python3 ssh_util.py exec_on_node "$NODE" \
+        python3 manager/ssh_util.py exec_on_node "$NODE" \
             "ipcs -s | awk 'NR>3 {print \$2}' | xargs -r ipcrm -s 2>/dev/null || true" >/dev/null 2>&1 &
     done
     wait

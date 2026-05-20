@@ -133,7 +133,8 @@ done
 
 # Get script directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+cd "$PROJECT_ROOT"
 
 # Check if config exists
 if [ ! -f "$CONFIG_FILE" ]; then
@@ -162,7 +163,7 @@ DEFAULT_PORT="34567"
 # Helper: resolve short IP (last octet) to full IP from discovered nodes
 resolve_short_ip() {
     local SHORT_IP="$1"
-    local DISCOVERED=$(python3 node_discovery.py --config "$CONFIG_FILE" 2>/dev/null)
+    local DISCOVERED=$(python3 manager/node_discovery.py --config "$CONFIG_FILE" 2>/dev/null)
     local MATCHED=$(echo "$DISCOVERED" | tr ' ' '\n' | grep "\.${SHORT_IP}$" | head -1)
     if [ -n "$MATCHED" ]; then
         echo "$MATCHED"
@@ -259,7 +260,7 @@ if [ "$PD_MODE" = true ]; then
         echo "  Router not detected, starting new instance..."
 
         # Kill any existing router process in container
-        python3 ssh_util.py exec_in_container "$PREFILL_IP" "$MASTER_CONTAINER" \
+        python3 manager/ssh_util.py exec_in_container "$PREFILL_IP" "$MASTER_CONTAINER" \
             "pkill -f 'sglang.*router.*--port $ROUTER_PORT' 2>/dev/null || true" >/dev/null 2>&1 || true
         sleep 1
 
@@ -274,7 +275,7 @@ if [ "$PD_MODE" = true ]; then
 
         echo "  Router will run in container: $MASTER_CONTAINER on $PREFILL_IP"
 
-        python3 ssh_util.py exec_in_container "$PREFILL_IP" "$MASTER_CONTAINER" \
+        python3 manager/ssh_util.py exec_in_container "$PREFILL_IP" "$MASTER_CONTAINER" \
             "$ROUTER_CMD" >/dev/null 2>&1 &
 
         # Wait for router to be ready
@@ -288,7 +289,7 @@ if [ "$PD_MODE" = true ]; then
             if [ $i -eq 30 ]; then
                 echo -e "${RED}Error: Router failed to start after 30 seconds${NC}"
                 echo "Router log (from container):"
-                python3 ssh_util.py exec_in_container "$PREFILL_IP" "$MASTER_CONTAINER" \
+                python3 manager/ssh_util.py exec_in_container "$PREFILL_IP" "$MASTER_CONTAINER" \
                     "tail -50 /tmp/sglang_router_${ROUTER_PORT}.log" 2>&1 || echo "Failed to read router log"
                 exit 1
             fi
@@ -424,7 +425,7 @@ if [[ "$CURRENT_IP" == "$MASTER_IP" ]]; then
 else
     # Remote execution - use SSH
     echo "Using remote container on $MASTER_IP: $MASTER_CONTAINER"
-    python3 ssh_util.py exec_in_container "$MASTER_IP" "$MASTER_CONTAINER" \
+    python3 manager/ssh_util.py exec_in_container "$MASTER_IP" "$MASTER_CONTAINER" \
         "cd $WORKSPACE_PATH && $BENCH_CMD" || {
         echo -e "${RED}Benchmark execution failed${NC}"
         exit 1
