@@ -27,6 +27,8 @@ CONFIG_FILE="config.yaml"
 COMMAND=""
 MASTER_IP=""
 PD_MODE=""  # Empty = unified mode
+CLI_WORKSPACE_PATH=""
+CLI_MODEL_PATH=""
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
@@ -43,6 +45,14 @@ while [[ $# -gt 0 ]]; do
             CONFIG_FILE="$2"
             shift 2
             ;;
+        --workspace-path)
+            CLI_WORKSPACE_PATH="$2"
+            shift 2
+            ;;
+        --model-path)
+            CLI_MODEL_PATH="$2"
+            shift 2
+            ;;
         --pd)
             PD_MODE="$2"
             if [[ "$PD_MODE" != "prefill" && "$PD_MODE" != "decode" ]]; then
@@ -53,7 +63,11 @@ while [[ $# -gt 0 ]]; do
             ;;
         *)
             echo -e "${RED}Unknown option: $1${NC}"
-            echo "Usage: $0 --command \"...\" --master-ip IP [--pd {prefill|decode}] [--config FILE]"
+            echo "Usage: $0 --command \"...\" --master-ip IP [OPTIONS]"
+            echo "  --workspace-path PATH  Override workspace path"
+            echo "  --model-path PATH      Override model path"
+            echo "  --pd {prefill|decode}  PD disaggregation mode"
+            echo "  --config FILE          Config file (default: config.yaml)"
             exit 1
             ;;
     esac
@@ -110,7 +124,9 @@ print(json.dumps(config))
 EOF
 )
 
-WORKSPACE_PATH=$(echo "$CONFIG" | python3 -c "import sys, json; config=json.load(sys.stdin); print(config['workspace_path'])")
+WORKSPACE_PATH="${CLI_WORKSPACE_PATH:-$(echo "$CONFIG" | python3 -c "import sys, json; config=json.load(sys.stdin); print(config['workspace_path'])")}"
+MODEL_PATH="${CLI_MODEL_PATH:-$(echo "$CONFIG" | python3 -c "import sys, json; config=json.load(sys.stdin); print(config['model_path'])")}"
+MODEL_NAME=$(echo "$CONFIG" | python3 -c "import sys, json; config=json.load(sys.stdin); print(config['model_name'])")
 
 # Master IP must be provided via CLI
 echo "  Master IP: $MASTER_IP"
@@ -136,8 +152,6 @@ fi
 NODES=($(cat "$NODE_LIST_FILE"))
 NNODES=${#NODES[@]}
 echo "Nodes: $NNODES"
-MODEL_PATH=$(echo "$CONFIG" | python3 -c "import sys, json; config=json.load(sys.stdin); print(config['model_path'])")
-MODEL_NAME=$(echo "$CONFIG" | python3 -c "import sys, json; config=json.load(sys.stdin); print(config['model_name'])")
 
 # Read SGLang default parameters
 # Read SGLANG_DEEPEP_NUM_MAX_DISPATCH_TOKENS_PER_RANK from nccl_env (not from sglang_defaults)

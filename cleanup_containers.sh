@@ -26,6 +26,7 @@ MASTER_IP=""
 PD_MODE=""  # Empty = auto-detect
 FORCE_GPU_RESET=false
 CLEAN_SHARED_MEMORY=false
+CLI_WORKSPACE_PATH=""
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
@@ -40,6 +41,10 @@ while [[ $# -gt 0 ]]; do
             ;;
         --config)
             CONFIG_FILE="$2"
+            shift 2
+            ;;
+        --workspace-path)
+            CLI_WORKSPACE_PATH="$2"
             shift 2
             ;;
         --process)
@@ -68,22 +73,15 @@ while [[ $# -gt 0 ]]; do
             echo "Usage: $0 [OPTIONS]"
             echo ""
             echo "Options:"
-            echo "  --master-ip IP     Clean specific deployment (requires nodelist file)"
+            echo "  --master-ip IP         Clean specific deployment (requires nodelist file)"
+            echo "  --workspace-path PATH  Override workspace path"
             echo "  --pd {prefill|decode}  Specify PD mode (auto-detected if not provided)"
-            echo "  --graceful         Wait for requests to complete before stopping"
-            echo "  --timeout SECONDS  Timeout for graceful shutdown (default: 30)"
-            echo "  --config FILE      Config file (default: config.yaml)"
-            echo "  --process          Only clean processes, keep containers"
-            echo "  --force-gpu-reset  Force GPU reset after cleanup (may require reboot for some nodes)"
-            echo "  --clean-shm        Clean shared memory and IPC resources"
-            echo ""
-            echo "Examples:"
-            echo "  $0                                    # Clean all nodes from config"
-            echo "  $0 --master-ip 81                     # Clean specific deployment (auto-detect mode)"
-            echo "  $0 --master-ip 81 --pd prefill        # Clean prefill deployment"
-            echo "  $0 --master-ip 86 --pd decode         # Clean decode deployment"
-            echo "  $0 --graceful --timeout 60            # Graceful shutdown with 60s timeout"
-            echo "  $0 --force-gpu-reset --clean-shm     # Deep cleanup with GPU reset and SHM cleanup"
+            echo "  --graceful             Wait for requests to complete before stopping"
+            echo "  --timeout SECONDS      Timeout for graceful shutdown (default: 30)"
+            echo "  --config FILE          Config file (default: config.yaml)"
+            echo "  --process              Only clean processes, keep containers"
+            echo "  --force-gpu-reset      Force GPU reset after cleanup"
+            echo "  --clean-shm            Clean shared memory and IPC resources"
             exit 1
             ;;
     esac
@@ -156,13 +154,16 @@ if [ -n "$MASTER_IP" ]; then
     fi
 
     IP_LIST=$(cat "$NODE_LIST_FILE")
-    WORKSPACE_PATH=$(python3 <<EOF
+    if [ -n "$CLI_WORKSPACE_PATH" ]; then
+        WORKSPACE_PATH="$CLI_WORKSPACE_PATH"
+    else
+        WORKSPACE_PATH=$(python3 -c "
 import yaml
 with open('$CONFIG_FILE', 'r') as f:
     config = yaml.safe_load(f)
     print(config.get('workspace_path', '/data/workspace/benchmark'))
-EOF
-)
+")
+    fi
     if [ -n "$PD_MODE" ]; then
         echo "Cleaning PD deployment ($PD_MODE mode, master: $MASTER_IP)"
     else
@@ -172,12 +173,16 @@ EOF
     SPECIFIC_DEPLOYMENT=true
 else
     # Mode 2: Clean all nodes (from config or auto-discovery)
-    WORKSPACE_PATH=$(python3 -c "
+    if [ -n "$CLI_WORKSPACE_PATH" ]; then
+        WORKSPACE_PATH="$CLI_WORKSPACE_PATH"
+    else
+        WORKSPACE_PATH=$(python3 -c "
 import yaml
 with open('$CONFIG_FILE', 'r') as f:
     config = yaml.safe_load(f)
     print(config.get('workspace_path', '/data/workspace/benchmark'))
 ")
+    fi
     IP_LIST=$(python3 node_discovery.py --config "$CONFIG_FILE" 2>/dev/null)
     echo "Cleaning all discovered nodes"
     SPECIFIC_DEPLOYMENT=false

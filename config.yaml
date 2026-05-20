@@ -24,9 +24,9 @@ node_discovery:
 # Container Configuration
 image: "mirrors-ssl.aliyuncs.com/lmsysorg/sglang:v0.5.6-cu129-arm64"
 
-# Path Configuration (use absolute paths)
-workspace_path: "/data/workspace/benchmark"
-model_path: "/data/models"
+# Path Configuration (can be overridden via CLI --workspace-path, --model-path)
+workspace_path: "."  # Default: current directory. Override with --workspace-path
+model_path: "/data/models"  # Override with --model-path
 model_name: "Qwen3-Coder-480B-A35B-Instruct-FP8"
 
 # Output Paths (relative to workspace_path)
@@ -153,7 +153,7 @@ benchmark:
 
   # Output
   output:
-    result_base_path: "/data/workspace/benchmark/result/benchmarks"
+    result_base_path: "./result/benchmarks"
 
   # Profiler
   profiler:

@@ -29,6 +29,8 @@ DECODE_URL=""
 ROUTER_PORT="34001"
 WARMUP_REQUESTS=1
 DATASET="random"
+CLI_WORKSPACE_PATH=""
+CLI_MODEL_PATH=""
 
 # Print usage
 usage() {
@@ -110,6 +112,14 @@ while [[ $# -gt 0 ]]; do
             DATASET="$2"
             shift 2
             ;;
+        --workspace-path)
+            CLI_WORKSPACE_PATH="$2"
+            shift 2
+            ;;
+        --model-path)
+            CLI_MODEL_PATH="$2"
+            shift 2
+            ;;
         -h|--help)
             usage
             ;;
@@ -141,8 +151,8 @@ print(json.dumps(config))
 EOF
 )
 
-WORKSPACE_PATH=$(echo "$CONFIG" | python3 -c "import sys, json; config=json.load(sys.stdin); print(config['workspace_path'])")
-MODEL_PATH=$(echo "$CONFIG" | python3 -c "import sys, json; config=json.load(sys.stdin); print(config['model_path'])")
+WORKSPACE_PATH="${CLI_WORKSPACE_PATH:-$(echo "$CONFIG" | python3 -c "import sys, json; config=json.load(sys.stdin); print(config['workspace_path'])")}"
+MODEL_PATH="${CLI_MODEL_PATH:-$(echo "$CONFIG" | python3 -c "import sys, json; config=json.load(sys.stdin); print(config['model_path'])")}"
 MODEL_NAME=$(echo "$CONFIG" | python3 -c "import sys, json; config=json.load(sys.stdin); print(config['model_name'])")
 FULL_MODEL_PATH="$MODEL_PATH/$MODEL_NAME"
 

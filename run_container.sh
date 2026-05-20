@@ -37,6 +37,9 @@ CONFIG_FILE="config.yaml"
 CUR_NODE=""
 MASTER_IP=""
 PD_MODE=""  # Empty = unified mode, "prefill" or "decode" = PD mode
+CLI_WORKSPACE_PATH=""
+CLI_MODEL_PATH=""
+CLI_IMAGE=""
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
@@ -53,6 +56,18 @@ while [[ $# -gt 0 ]]; do
             CONFIG_FILE="$2"
             shift 2
             ;;
+        --workspace-path)
+            CLI_WORKSPACE_PATH="$2"
+            shift 2
+            ;;
+        --model-path)
+            CLI_MODEL_PATH="$2"
+            shift 2
+            ;;
+        --image)
+            CLI_IMAGE="$2"
+            shift 2
+            ;;
         --pd)
             PD_MODE="$2"
             if [[ "$PD_MODE" != "prefill" && "$PD_MODE" != "decode" ]]; then
@@ -63,7 +78,12 @@ while [[ $# -gt 0 ]]; do
             ;;
         *)
             echo -e "${RED}Unknown option: $1${NC}"
-            echo "Usage: $0 --cur-node N --master-ip IP [--pd {prefill|decode}] [--config FILE]"
+            echo "Usage: $0 --cur-node N --master-ip IP [OPTIONS]"
+            echo "  --workspace-path PATH  Override workspace path"
+            echo "  --model-path PATH      Override model path"
+            echo "  --image IMAGE          Override container image"
+            echo "  --pd {prefill|decode}  PD disaggregation mode"
+            echo "  --config FILE          Config file (default: config.yaml)"
             exit 1
             ;;
     esac
@@ -132,9 +152,9 @@ if [ -z "$IP_LIST" ]; then
     exit 1
 fi
 echo "  Discovered nodes: $IP_LIST"
-IMAGE=$(echo "$CONFIG" | python3 -c "import sys, json; config=json.load(sys.stdin); print(config['image'])")
-WORKSPACE_PATH=$(echo "$CONFIG" | python3 -c "import sys, json; config=json.load(sys.stdin); print(config['workspace_path'])")
-MODEL_PATH=$(echo "$CONFIG" | python3 -c "import sys, json; config=json.load(sys.stdin); print(config['model_path'])")
+IMAGE="${CLI_IMAGE:-$(echo "$CONFIG" | python3 -c "import sys, json; config=json.load(sys.stdin); print(config['image'])")}"
+WORKSPACE_PATH="${CLI_WORKSPACE_PATH:-$(echo "$CONFIG" | python3 -c "import sys, json; config=json.load(sys.stdin); print(config['workspace_path'])")}"
+MODEL_PATH="${CLI_MODEL_PATH:-$(echo "$CONFIG" | python3 -c "import sys, json; config=json.load(sys.stdin); print(config['model_path'])")}"
 GPUS_PER_NODE=$(echo "$CONFIG" | python3 -c "import sys, json; config=json.load(sys.stdin); print(config.get('gpus_per_node', 4))")
 
 echo "  Workspace: $WORKSPACE_PATH"
