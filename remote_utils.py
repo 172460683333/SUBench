@@ -40,16 +40,17 @@ def execute_ssh_command(
         Tuple of (success, stdout, stderr)
     """
     # Privilege escalation for pouch commands:
-    #   - Root user (default): no sudo needed, execute directly
-    #   - Non-root with NOPASSWD sudo: wrap with 'sudo'
+    #   - Root user: no sudo needed, execute directly
     #   - Non-root with password: wrap with 'echo pwd | sudo -S'
+    #   - Non-root without password: wrap with 'sudo' (assumes NOPASSWD)
     if command.strip().startswith("pouch "):
         if sudo_password:
             escaped_password = sudo_password.replace("'", "'\\''")
             command = f"echo '{escaped_password}' | sudo -S -p '' {command}"
-        elif user and user != "root":
+        elif user != "root":
+            # Non-root user (or user not specified = current user, assume non-root)
             command = f"sudo {command}"
-        # else: root user, execute directly
+        # else: explicit root user, execute directly
 
     user_prefix = f"{user}@" if user else ""
     ssh_cmd = [
