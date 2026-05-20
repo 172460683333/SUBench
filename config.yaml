@@ -1,0 +1,168 @@
+# SGLang Distributed Deployment Configuration
+
+# Node Configuration
+max_nodes: 15  # Maximum number of nodes available
+current_nodes: 4  # Number of nodes to use for this deployment
+gpus_per_node: 4  # GPUs per node
+
+# IP List (priority order - nodes listed first will be selected first)
+# If empty or omitted, nodes will be auto-discovered via nvidia-imex-ctl, SLURM, or /etc/hosts
+ip_list: []
+
+# Node Discovery Configuration (used when ip_list is empty)
+node_discovery:
+  # Discovery method: auto | imex | slurm | hosts
+  method: "auto"
+  # Pattern to match hostnames in /etc/hosts (only for 'hosts' method)
+  hosts_pattern: null  # e.g., "gpu-node-\\d+"
+
+# Authentication modes:
+#   1. Root user (default): no sudo needed, commands run directly
+#   2. Non-root with NOPASSWD sudo: set SSH_USER in env (sudo auto-applied)
+#   3. Non-root with password sudo: set SUDO_PASSWORD env var
+
+# Container Configuration
+image: "mirrors-ssl.aliyuncs.com/lmsysorg/sglang:v0.5.6-cu129-arm64"
+
+# Path Configuration (use absolute paths)
+workspace_path: "/data/workspace/benchmark"
+model_path: "/data/models"
+model_name: "Qwen3-Coder-480B-A35B-Instruct-FP8"
+
+# Output Paths (relative to workspace_path)
+log_path: "./log"
+result_path: "./result"
+profiler_path: "./result/traces"
+
+# NCCL Environment Variables (passed to containers)
+nccl_env:
+  SGLANG_LOCAL_IP_NIC: "eth0"
+  GLOO_SOCKET_IFNAME: "eth0"
+  NCCL_SOCKET_IFNAME: "eth0"
+  NCCL_DEBUG: "INFO"
+  NCCL_DEBUG_SUBSYS: "ENV"
+  NCCL_IB_DISABLE: "1"
+  NCCL_IBEXT_DISABLE: "1"
+  NCCL_IB_TIMEOUT: "22"
+  NCCL_P2P_LEVEL: "5"
+  NCCL_NVLS_ENABLE: "1"
+  NCCL_MNNVL_ENABLE: "1"
+  NCCL_CUMEM_ENABLE: "1"
+  SGLANG_DEEPEP_NUM_MAX_DISPATCH_TOKENS_PER_RANK: "1024"
+
+# Prefill-Decode Disaggregation Configuration (optional)
+disaggregation:
+  # IB device for RDMA communication
+  ib_device: "mlx5_bond_0"
+
+  # PD-specific environment variables
+  pd_env:
+    SGLANG_MOONCAKE_CUSTOM_MEM_POOL: "True"
+    MC_FORCE_MNNVL: "True"
+    SGLANG_DISAGGREGATION_BOOTSTRAP_TIMEOUT: "600"
+    SGLANG_DISAGGREGATION_WAITING_TIMEOUT: "600"
+
+  # Dependencies to install in PD mode
+  dependencies:
+    - "uv"
+    - "mooncake-transfer-engine"
+
+# SGLang Server Default Parameters
+sglang_defaults:
+  # Performance parameters
+  mem_fraction_static: 0.8  # Reduced from 0.9 to avoid CUDA graph capture issues
+  page_size: 32
+  watchdog_timeout: 600  # Watchdog timeout in seconds
+  chunked_prefill_base_size: 16384  # Base size for chunked prefill (multiplied by DP size)
+
+  # Model parameters
+  load_format: "auto"  # or "dummy" for testing
+  trust_remote_code: false
+  tool_call_parser: null  # e.g., "qwen3_coder"
+
+  # Cache parameters
+  disable_radix_cache: false
+  disable_shared_experts_fusion: false
+
+  # MoE parameters
+  ep_num_redundant_experts: 0  # Set to 32 for redundancy
+  deepep_mode: "auto"  # auto (default) or low_latency for decode optimization
+
+  # Logging
+  decode_log_interval: 40  # Set to 1 for verbose logging
+
+# Profiler Configuration
+profiler_config:
+  # Enable nsys profiling (wraps python with nsys)
+  enable_nsys: false  # Set to true to enable nsys profiling
+
+  # Enable PyTorch profiler via HTTP API
+  enable_torch_profiler: true  # Enable HTTP profiler endpoints
+
+  # Output paths (relative to workspace_path)
+  nsys_output_path: "./result/nsys_traces"
+  torch_profiler_output_path: "./result/traces"
+
+  # Nsys settings
+  nsys_settings:
+    capture_range: "cudaProfilerApi"  # Low overhead mode
+    capture_range_end: "stop"
+    export_format: "none"  # Only generate .nsys-rep files
+    force_overwrite: true
+
+# Benchmark Automation Configuration
+benchmark:
+  # Server settings
+  server:
+    base_url: ""  # Auto-detect from master_ip:port if empty
+    backend: "sglang"
+
+  # Test parameters
+  test_params:
+    dataset: "random-ids"
+    output_len: 512
+    warmup_requests: 0
+
+  # Test matrix (small to large)
+  test_matrix:
+    # Batch sizes:
+    #   - "auto" for automatic calculation based on GPU memory
+    #   - [1, 4, 16, 32, ...] for manual specification
+    batch_sizes: "auto"
+    input_lengths: [1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072]
+
+  # Auto batch size configuration (only used when test_matrix.batch_sizes = "auto")
+  auto_batch_size:
+    memory_safety_margin: 0.1  # Use 90% of free memory (safety buffer)
+    min_batch_size: 1  # Minimum batch size to test
+    max_batch_size: 1024  # Maximum batch size to test (hard limit)
+    fallback_free_memory_gb: 40  # Fallback if nvidia-smi fails
+
+  # Queue monitoring
+  queue_limits:
+    max_queue_requests: 40
+
+  # Behavior
+  behavior:
+    skip_existing: true  # Resume capability
+    sleep_between_tests: 2
+    test_timeout: 3600  # 1 hour
+    server_idle_timeout: 300  # Wait up to 300s for server to become idle before/after tests
+    server_idle_check_interval: 2  # Check server status every 2 seconds
+    server_idle_log_interval: 10  # Log status every 10 seconds
+
+  # Output
+  output:
+    result_base_path: "/data/workspace/benchmark/result/benchmarks"
+
+  # Profiler
+  profiler:
+    enable: false
+    use_http_api: true
+    save_traces: true
+
+  # Options
+  options:
+    print_requests: false
+    output_details: true
+
