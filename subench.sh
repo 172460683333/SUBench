@@ -23,13 +23,17 @@ Commands:
   setup     Discover nodes, launch containers (Cluster Resource Manager)
   serve     Launch distributed LLM inference server (Executor)
   bench     Run single benchmark test (Executor)
+  execute   Create container and run compute/comm benchmark (Execute Engine)
   cleanup   Cleanup containers and reclaim resources (Manager)
 
 Examples:
-  $0 setup   --cur-node 4 --master-ip 192.168.1.1 --workspace-path /data/bench --model-path /data/models
-  $0 serve   --master-ip 192.168.1.1 --workspace-path /data/bench --model-path /data/models --command "python -m sglang.launch_server ..."
-  $0 bench   --base-url 192.168.1.1 --bs 256 --input-len 8192 --workspace-path /data/bench --model-path /data/models
-  $0 cleanup --master-ip 192.168.1.1 --workspace-path /data/bench
+  $0 setup   --cur-node 4 --master-ip 192.168.1.1 --workspace-path /path/to/bench --model-path /path/to/models
+  $0 serve   --master-ip 192.168.1.1 --workspace-path /path/to/bench --model-path /path/to/models --command "python -m sglang.launch_server ..."
+  $0 bench   --base-url 192.168.1.1 --bs 256 --input-len 8192 --workspace-path /path/to/bench
+  $0 execute attention --node 10.0.0.1 --attn-type mla --num-q-heads 128 --batch-sizes 1,4,16
+  $0 execute moe --node 10.0.0.1 --model-path /path/to/models --model-name DeepSeek-R1
+  $0 execute deepep --world-size 4 --num-tokens 256
+  $0 cleanup --master-ip 192.168.1.1 --workspace-path /path/to/bench
 
 Environment Variables:
   SUDO_PASSWORD  Password for sudo (non-root users only)
@@ -54,6 +58,9 @@ case "$COMMAND" in
         ;;
     bench)
         exec "$SCRIPT_DIR/executor/single_bench.sh" "$@"
+        ;;
+    execute|exec)
+        exec "$SCRIPT_DIR/executor/execute_engine.sh" "$@"
         ;;
     cleanup)
         exec "$SCRIPT_DIR/manager/cleanup_containers.sh" "$@"

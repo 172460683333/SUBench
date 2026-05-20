@@ -42,12 +42,66 @@ cd SUBench
 ### 1.4 清理
 
 ```bash
-./subench.sh cleanup --master-ip <MASTER_IP> --workspace-path /data/bench
+./subench.sh cleanup --master-ip <MASTER_IP> --workspace-path /path/to/bench
 ```
 
 ---
 
-## 2. 计算 Benchmark（单机 GPU）
+## 2. Execute Engine（推荐：自动创建容器 + 运行 benchmark）
+
+Execute Engine 会自动创建容器、执行 benchmark、结束后清理容器，一条命令搞定。
+
+### Attention Decode Benchmark
+
+```bash
+# 手动模式（不需要模型权重）
+./subench.sh execute attention --node <IP> \
+  --attn-type mla --num-q-heads 128 \
+  --batch-sizes 1,4,16,64 --kv-lens 1024,4096,8192 \
+  --csv /path/to/attn_results.csv
+
+# 自动检测模型参数
+./subench.sh execute attention --node <IP> \
+  --model-path /path/to/models --model-name DeepSeek-R1 \
+  --num-q-heads 128 --csv /path/to/attn_results.csv
+
+# 本地运行（省略 --node）
+./subench.sh execute attention --local \
+  --attn-type mla --num-q-heads 128 --batch-sizes 1,4,16
+```
+
+### MoE Expert GEMM Benchmark
+
+```bash
+# 自动检测模型参数
+./subench.sh execute moe --node <IP> \
+  --model-path /path/to/models --model-name DeepSeek-R1 \
+  --ep-list 8,16,32,48,64 --csv /path/to/moe_results.csv
+
+# 手动模式 + 多 GPU
+./subench.sh execute moe --node <IP> \
+  --hidden-size 7168 --moe-intermediate-size 2048 \
+  --num-experts 256 --topk 8 --ep-list 16,32 --gpus 4
+
+# 保留容器（调试用）
+./subench.sh execute moe --node <IP> --keep-container \
+  --model-path /path/to/models --model-name DeepSeek-R1
+```
+
+### DeepEP 通信测试
+
+```bash
+# 单节点多卡
+./subench.sh execute deepep --node <IP> \
+  --num-processes 4 --num-tokens 256 --allow-mnnvl
+
+# 多节点（需要先 setup 生成 nodelist）
+./subench.sh execute deepep --world-size 4 --num-tokens 256
+```
+
+---
+
+## 3. 计算 Benchmark（直接在容器内运行）
 
 ### Attention Decode Benchmark
 
