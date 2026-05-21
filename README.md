@@ -1,4 +1,4 @@
-# SUBench — Scalable Unified Benchmark for Multi-GPU LLM Inference
+# SUBench — A Benchmark for Large Language Model Inference on GPU Supernodes
 
 ## Quick Start
 
