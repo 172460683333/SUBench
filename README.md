@@ -6,7 +6,7 @@
 git clone https://github.com/172460683333/SUBench.git
 cd SUBench
 
-# MoE GEMM benchmark (copy & run, no model weights needed)
+# MoE GEMM benchmark 
 ./subench.sh execute moe --local \
   --hidden-size 7168 --moe-intermediate-size 2048 \
   --num-experts 256 --topk 8 --ep-list 16,32 --gpus 4
