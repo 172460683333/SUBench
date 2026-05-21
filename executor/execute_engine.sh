@@ -367,16 +367,60 @@ run_deepep() {
         # Multi-node mode: use launch script
         echo -e "${YELLOW}Multi-node DeepEP test (world_size=$world_size)${NC}"
 
-        # Read nodelist
+        # Read nodelist: try existing file first, then auto-discover
         local nodelist_file="${WORKSPACE_PATH}/tmp/nodelist"
         if [ ! -f "$nodelist_file" ]; then
-            # Try to find any nodelist
             nodelist_file=$(ls "${WORKSPACE_PATH}/tmp/nodelist_"* 2>/dev/null | head -1)
         fi
 
         if [ -z "$nodelist_file" ] || [ ! -f "$nodelist_file" ]; then
-            echo -e "${RED}Error: No nodelist found. Run 'subench.sh setup' first or provide NODELIST_FILE${NC}"
-            exit 1
+            echo "  No existing nodelist found, auto-discovering nodes..."
+            local discovered_ips
+            discovered_ips=$(python3 "${PROJECT_ROOT}/manager/node_discovery.py" --config "$CONFIG_FILE" 2>/dev/null)
+
+            if [ -z "$discovered_ips" ]; then
+                echo -e "${RED}Error: Auto-discovery failed. Set ip_list in config.yaml or run 'subench.sh setup' first.${NC}"
+                exit 1
+            fi
+
+            # Detect local IP (master): first IP that matches a local interface
+            local local_ip
+            local_ip=$(python3 -c "
+import subprocess, re
+discovered = '''$discovered_ips'''.split()
+try:
+    result = subprocess.run(['hostname', '-I'], capture_output=True, text=True)
+    local_ips = result.stdout.strip().split()
+except:
+    local_ips = []
+# Find first discovered IP that is local
+for ip in discovered:
+    if ip in local_ips:
+        print(ip)
+        break
+else:
+    # Fallback: use first discovered IP
+    print(discovered[0] if discovered else '')
+" 2>/dev/null)
+
+            if [ -z "$local_ip" ]; then
+                echo -e "${RED}Error: Cannot determine local IP from discovered nodes${NC}"
+                exit 1
+            fi
+
+            echo "  Discovered nodes: $discovered_ips"
+            echo "  Local/Master IP: $local_ip"
+
+            # Write temporary nodelist (master first, then others)
+            mkdir -p "${WORKSPACE_PATH}/tmp" 2>/dev/null || true
+            nodelist_file="${WORKSPACE_PATH}/tmp/nodelist_auto"
+            echo "$local_ip" > "$nodelist_file"
+            for ip in $discovered_ips; do
+                if [ "$ip" != "$local_ip" ]; then
+                    echo "$ip" >> "$nodelist_file"
+                fi
+            done
+            echo "  Nodelist written to: $nodelist_file"
         fi
 
         mapfile -t NODE_IPS < <(grep -v '^[[:space:]]*$' "$nodelist_file")
