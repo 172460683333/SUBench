@@ -3,8 +3,13 @@
 ## Quick Start
 
 ```bash
-git clone git@github.com:172460683333/SUBench.git
+git clone https://github.com/172460683333/SUBench.git
 cd SUBench
+
+# Run MoE GEMM benchmark immediately (no model weights needed)
+./subench.sh execute moe --local \
+  --hidden-size 7168 --moe-intermediate-size 2048 \
+  --num-experts 256 --topk 8 --ep-list 16,32 --gpus 4
 ```
 
 ---
@@ -116,32 +121,3 @@ For full-stack inference serving benchmark across multiple nodes.
 ./subench.sh cleanup --master-ip <MASTER_IP> --workspace-path /path/to/bench
 ```
 
----
-
-## Project Structure
-
-```
-SUBench/
-├── subench.sh                  # Unified entry point
-├── config.yaml                 # Global configuration
-├── manager/                    # Cluster Resource Manager
-│   ├── run_container.sh        #   Container launcher
-│   ├── cleanup_containers.sh   #   Container cleanup
-│   ├── node_discovery.py       #   Auto node discovery
-│   ├── ssh_util.py             #   SSH utilities
-│   └── remote_utils.py         #   Remote execution
-├── executor/                   # Executor
-│   ├── execute_engine.sh       #   Execute engine (container + benchmark)
-│   ├── run_server.sh           #   SGLang server launcher
-│   ├── single_bench.sh         #   Single benchmark run
-│   ├── benchmark.py            #   Automated benchmark matrix
-│   ├── batch_size_calculator.py#   Dynamic batch size calculator
-│   ├── compute/                #   Computation benchmarks
-│   │   ├── attention_benchmark.py  # Attention decode (MLA/QGA)
-│   │   └── moe_benchmark.py       # MoE expert GEMM
-│   └── comm/                   #   Communication benchmarks
-│       ├── launch_deepep_ll_test_from_master.sh  # Multi-node launcher
-│       ├── test_low_latency.py     # DeepEP low-latency test
-│       └── utils.py                # DeepEP utilities
-└── data/                       # Test data & results
-```
