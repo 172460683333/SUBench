@@ -89,12 +89,13 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Validate both required arguments
-if [ -z "$CUR_NODE" ] || [ -z "$MASTER_IP" ]; then
-    echo -e "${RED}Error: Both --cur-node and --master-ip are required${NC}"
-    echo "Usage: $0 --cur-node N --master-ip IP [--pd {prefill|decode}] [--config FILE]"
+# Validate required arguments
+if [ -z "$CUR_NODE" ]; then
+    echo -e "${RED}Error: --cur-node is required${NC}"
+    echo "Usage: $0 --cur-node N [--master-ip IP] [--pd {prefill|decode}] [--config FILE]"
     echo ""
     echo "Examples:"
+    echo "  $0 --cur-node 4                                    # Auto-detect master IP"
     echo "  $0 --cur-node 4 --master-ip 81                    # Unified mode"
     echo "  $0 --cur-node 2 --master-ip 81 --pd prefill       # PD prefill cluster"
     echo "  $0 --cur-node 2 --master-ip 86 --pd decode        # PD decode cluster"
@@ -104,6 +105,31 @@ fi
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 cd "$PROJECT_ROOT"
+
+# Auto-detect master IP if not provided
+if [ -z "$MASTER_IP" ]; then
+    DISCOVERED_IPS=$(python3 manager/node_discovery.py --config "$CONFIG_FILE" 2>/dev/null)
+    MASTER_IP=$(python3 -c "
+import subprocess
+discovered = '''$DISCOVERED_IPS'''.split()
+try:
+    result = subprocess.run(['hostname', '-I'], capture_output=True, text=True)
+    local_ips = result.stdout.strip().split()
+except:
+    local_ips = []
+for ip in discovered:
+    if ip in local_ips:
+        print(ip)
+        break
+else:
+    print(discovered[0] if discovered else '')
+" 2>/dev/null)
+    if [ -z "$MASTER_IP" ]; then
+        echo -e "${RED}Error: Cannot auto-detect master IP. Provide --master-ip explicitly.${NC}"
+        exit 1
+    fi
+    echo "Auto-detected master IP: $MASTER_IP"
+fi
 
 # Auto-complete master IP: if only last octet given, match from discovered nodes
 if [[ "$MASTER_IP" =~ ^[0-9]+$ ]]; then
